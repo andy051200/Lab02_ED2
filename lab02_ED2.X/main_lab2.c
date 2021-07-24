@@ -33,8 +33,8 @@ Descripcion:
 #include <xc.h>                 //se incluye libreria del compilador
 #include <stdint.h>             //se incluye libreria
 #include <pic16f887.h>          //se incluye libreria del pic
-/*#include "adc_config.h"         //se incluye libreria del adc
-#include "multiplexada.h"       //se incluye libreria de multiplexada*/
+#include "adc_config.h"         //se incluye libreria del adc
+//#include "multiplexada.h"       //se incluye libreria de multiplexada*/
 
 /*-----------------------------------------------------------------------------
  ------------------------DIRECTIVAS DE COMPILADOR------------------------------
@@ -45,16 +45,21 @@ Descripcion:
  ------------------------ PROTOTIPOS DE FUNCIONES ------------------------------
  -----------------------------------------------------------------------------*/
 void setup(void);       //prototipo de funcion de configuracion
+void toggle_adc(void);  //prototipo de funcion de toggle de canales ADC
 
 /*-----------------------------------------------------------------------------
  ----------------------- VARIABLES A IMPLEMTENTAR------------------------------
  -----------------------------------------------------------------------------*/
+unsigned char conversion1;  //variable que almacena potenciometro 1
+unsigned char conversion2;  //variable que almacena potenciometro 2
 
 /*-----------------------------------------------------------------------------
  ---------------------------- INTERRUPCIONES ----------------------------------
  -----------------------------------------------------------------------------*/
 void __interrupt() isr(void) //funcion de interrupciones
 {
+    //------interrupcion 
+    
    
 }
 
@@ -118,7 +123,7 @@ void setup(void)
     WPUBbits.WPUB2 = 1;         // enable Pull-Up de RB2 
 
     //IMPORTAR FUNCION DEL ADC DESDE LIBRERIA
-    //adc_config();               //se llama funcion
+    adc_config();               //se llama funcion
     
     //CONFIGURACION DE INTERRUPCIONES
     INTCONbits.GIE=1;           //se habilitan las interrupciones globales
@@ -138,3 +143,26 @@ void setup(void)
 /*-----------------------------------------------------------------------------
  --------------------------------- FUNCIONES ----------------------------------
  -----------------------------------------------------------------------------*/
+void toggle_adc(void)
+{
+    if (ADCON0bits.GO==0)
+    {
+        switch(ADCON0bits.CHS)
+        {
+            case(0):
+                conversion1=ADRESH;         //potenciometro 1
+                __delay_us(100);            //delay para cargar capacitor          
+                ADCON0bits.CHS=1;           //switch de canal
+                break;
+                    
+            case(1):
+                conversion2=ADRESH;         //potenciometro 2
+                __delay_us(100);            //delay para cargar capacitor
+                ADCON0bits.CHS=0;           //switch de canal
+                break;
+            }
+            __delay_us(100);                //delay para carga de capacitor
+            ADCON0bits.GO=1;                //se inicia otra conversion ADC
+        }
+    return;
+}
