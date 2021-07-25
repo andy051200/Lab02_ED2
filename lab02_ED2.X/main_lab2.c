@@ -78,7 +78,7 @@ void main(void)
     while(1)
     {
         lcd_linea(1,1);        //selecciono la linea 1 para escribir
-        show("wenas ly");           //mensaje a enviar linea 1
+        show(" sen1 sen2 sen3");           //mensaje a enviar linea 1
         lcd_linea(2,1);        //selecciono la linea 2 para escibrir
         show("probemos");           //mensaje a enviar linea 2
     }

@@ -438,7 +438,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main_lab2.c: 80:         lcd_linea(1,1);
 [e ( _lcd_linea (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "81
-[; ;main_lab2.c: 81:         show("wenas ly");
+[; ;main_lab2.c: 81:         show(" sen1 sen2 sen3");
 [e ( _show (1 :s 1C ]
 "82
 [; ;main_lab2.c: 82:         lcd_linea(2,1);
@@ -601,5 +601,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main_lab2.c: 159: }
 [e :UE 144 ]
 }
-[a 1C 119 101 110 97 115 32 108 121 0 ]
 [a 2C 112 114 111 98 101 109 111 115 0 ]
+[a 1C 32 115 101 110 49 32 115 101 110 50 32 115 101 110 51 0 ]

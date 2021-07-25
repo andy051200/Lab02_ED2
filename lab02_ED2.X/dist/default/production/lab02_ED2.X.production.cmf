@@ -11,24 +11,24 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.o
+$C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
 $dist/default/production\lab02_ED2.X.production.o
 cinit CODE 0 F F 6 2
-text1 CODE 0 91 91 1F 2
-text2 CODE 0 F7 F7 15 2
+text1 CODE 0 B0 B0 1F 2
+text2 CODE 0 FE FE 15 2
 text3 CODE 0 71 71 20 2
-text4 CODE 0 E1 E1 16 2
+text4 CODE 0 E8 E8 16 2
 text5 CODE 0 45 45 2C 2
-text6 CODE 0 B0 B0 19 2
-text7 CODE 0 10C 10C 15 2
-text8 CODE 0 121 121 7 2
+text6 CODE 0 CF CF 19 2
+text7 CODE 0 113 113 15 2
+text8 CODE 0 128 128 7 2
 maintext CODE 0 15 15 30 2
 cstackCOMMON COMMON 1 70 70 A 1
 intentry CODE 0 4 4 8 2
-strings STRING 0 C9 C9 18 2
+strings STRING 0 91 91 1F 2
 bssCOMMON COMMON 1 7A 7A 2 1
 config CONFIG 4 2007 2007 2 2
 # %UNUSED Section
@@ -46,13 +46,13 @@ BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST 128-1FFF 2
+CONST 12F-1FFF 2
 ENTRY 3-3 2
-ENTRY 128-1FFF 2
+ENTRY 12F-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE 128-1FFF 2
+CODE 12F-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
@@ -60,9 +60,9 @@ SFR3 180-18F 1
 COMMON 7C-7D 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 128-1FFF 2
+STRCODE 12F-1FFF 2
 STRING 3-3 2
-STRING 128-1FFF 2
+STRING 12F-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -77,30 +77,30 @@ STRING 128-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\lab02_ED2.X.production.o
-F cinit CODE >824:C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.s
-F cinit CODE >827:C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.s
-F cinit CODE >841:C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.s
-10 cinit CODE >842:C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.s
-11 cinit CODE >848:C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.s
-11 cinit CODE >850:C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.s
-12 cinit CODE >851:C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.s
+F cinit CODE >831:C:\Users\ANDYBO~1\AppData\Local\Temp\semg.s
+F cinit CODE >834:C:\Users\ANDYBO~1\AppData\Local\Temp\semg.s
+F cinit CODE >848:C:\Users\ANDYBO~1\AppData\Local\Temp\semg.s
+10 cinit CODE >849:C:\Users\ANDYBO~1\AppData\Local\Temp\semg.s
+11 cinit CODE >855:C:\Users\ANDYBO~1\AppData\Local\Temp\semg.s
+11 cinit CODE >857:C:\Users\ANDYBO~1\AppData\Local\Temp\semg.s
+12 cinit CODE >858:C:\Users\ANDYBO~1\AppData\Local\Temp\semg.s
 4 intentry CODE >61:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
-121 text8 CODE >61:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
-121 text8 CODE >66:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
-10C text7 CODE >37:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-10D text7 CODE >39:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-111 text7 CODE >40:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-112 text7 CODE >41:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-113 text7 CODE >42:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-114 text7 CODE >43:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-11D text7 CODE >44:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-120 text7 CODE >45:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-B0 text6 CODE >28:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-B0 text6 CODE >30:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-B6 text6 CODE >31:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-BC text6 CODE >32:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-C2 text6 CODE >33:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-C8 text6 CODE >34:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+128 text8 CODE >61:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
+128 text8 CODE >66:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
+113 text7 CODE >37:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+114 text7 CODE >39:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+118 text7 CODE >40:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+119 text7 CODE >41:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+11A text7 CODE >42:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+11B text7 CODE >43:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+124 text7 CODE >44:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+127 text7 CODE >45:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+CF text6 CODE >28:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+CF text6 CODE >30:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+D5 text6 CODE >31:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+DB text6 CODE >32:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+E1 text6 CODE >33:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+E7 text6 CODE >34:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
 45 text5 CODE >67:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
 46 text5 CODE >69:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
 4B text5 CODE >70:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
@@ -111,15 +111,15 @@ C8 text6 CODE >34:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2
 66 text5 CODE >76:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
 6A text5 CODE >77:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
 70 text5 CODE >80:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-E1 text4 CODE >20:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
-E1 text4 CODE >23:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
-E4 text4 CODE >24:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
-E5 text4 CODE >25:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
-E6 text4 CODE >27:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
-EC text4 CODE >28:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
-EE text4 CODE >29:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
-F3 text4 CODE >30:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
-F6 text4 CODE >32:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
+E8 text4 CODE >20:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
+E8 text4 CODE >23:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
+EB text4 CODE >24:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
+EC text4 CODE >25:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
+ED text4 CODE >27:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
+F3 text4 CODE >28:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
+F5 text4 CODE >29:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
+FA text4 CODE >30:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
+FD text4 CODE >32:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\adc_config.c
 71 text3 CODE >89:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
 71 text3 CODE >92:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
 74 text3 CODE >93:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
@@ -140,19 +140,19 @@ F6 text4 CODE >32:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2
 8A text3 CODE >126:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
 8D text3 CODE >127:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
 90 text3 CODE >132:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
-F7 text2 CODE >48:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-F8 text2 CODE >50:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-FC text2 CODE >51:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-FD text2 CODE >52:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-FE text2 CODE >53:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-FF text2 CODE >54:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-108 text2 CODE >55:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-10B text2 CODE >56:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-91 text1 CODE >59:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-92 text1 CODE >61:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-93 text1 CODE >62:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-A3 text1 CODE >61:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
-AF text1 CODE >64:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+FE text2 CODE >48:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+FF text2 CODE >50:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+103 text2 CODE >51:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+104 text2 CODE >52:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+105 text2 CODE >53:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+106 text2 CODE >54:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+10F text2 CODE >55:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+112 text2 CODE >56:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+B0 text1 CODE >59:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+B1 text1 CODE >61:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+B2 text1 CODE >62:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+C2 text1 CODE >61:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
+CE text1 CODE >64:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\LCD.c
 15 maintext CODE >71:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
 15 maintext CODE >73:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
 1A maintext CODE >74:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
@@ -175,32 +175,32 @@ AF text1 CODE >64:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
-__Hspace_0 128 0 ABS 0 - -
+__Hspace_0 12F 0 ABS 0 - -
 __Hspace_1 7C 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.o
+___sp 0 0 STACK 2 stack C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
 _main 2A 0 CODE 0 maintext dist/default/production\lab02_ED2.X.production.o
-_show 122 0 CODE 0 text1 dist/default/production\lab02_ED2.X.production.o
+_show 160 0 CODE 0 text1 dist/default/production\lab02_ED2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 cmd@a 74 0 COMMON 1 cstackCOMMON dist/default/production\lab02_ED2.X.production.o
 dat@b 74 0 COMMON 1 cstackCOMMON dist/default/production\lab02_ED2.X.production.o
-start 18 0 CODE 0 init C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.o
+start 18 0 CODE 0 init C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
 __size_of_main 0 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 __size_of_show 0 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
 show@s 76 0 COMMON 1 cstackCOMMON dist/default/production\lab02_ED2.X.production.o
 __end_of_lcd_linea E2 0 CODE 0 text5 dist/default/production\lab02_ED2.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
 __size_of_lcd_linea 0 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
@@ -213,28 +213,28 @@ _ANSELH 189 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 _conversion1 7B 0 COMMON 1 bssCOMMON dist/default/production\lab02_ED2.X.production.o
 _conversion2 7A 0 COMMON 1 bssCOMMON dist/default/production\lab02_ED2.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.o
-___stacklo 0 0 ABS 0 - C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.o
+___stackhi 0 0 ABS 0 - C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
+___stacklo 0 0 ABS 0 - C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
-_adc_config 1C2 0 CODE 0 text4 dist/default/production\lab02_ED2.X.production.o
+_adc_config 1D0 0 CODE 0 text4 dist/default/production\lab02_ED2.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\lab02_ED2.X.production.o
 _TRISCbits 87 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 lcd_linea@a 77 0 COMMON 1 cstackCOMMON dist/default/production\lab02_ED2.X.production.o
 lcd_linea@b 75 0 COMMON 1 cstackCOMMON dist/default/production\lab02_ED2.X.production.o
 lcd_linea@z 79 0 COMMON 1 cstackCOMMON dist/default/production\lab02_ED2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.o
+___int_sp 0 0 STACK 2 stack C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 2A 0 CODE 0 cinit -
 __Hstack 0 0 STACK 2 stack -
-__stringbase 19C 0 STRING 0 strings dist/default/production\lab02_ED2.X.production.o
+__stringbase 12C 0 STRING 0 strings dist/default/production\lab02_ED2.X.production.o
 __Hmaintext 0 0 ABS 0 maintext -
 __size_of_lcd_init 0 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4012 0 CONFIG 4 config -
-__end_of_adc_config 1EE 0 CODE 0 text4 dist/default/production\lab02_ED2.X.production.o
+__end_of_adc_config 1FC 0 CODE 0 text4 dist/default/production\lab02_ED2.X.production.o
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
@@ -262,22 +262,22 @@ __Ltext 0 0 ABS 0 text -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 _RC0 38 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 _RC1 39 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
-__S0 128 0 ABS 0 - -
+__S0 12F 0 ABS 0 - -
 __S1 7C 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_cmd 218 0 CODE 0 text7 dist/default/production\lab02_ED2.X.production.o
-_dat 1EE 0 CODE 0 text2 dist/default/production\lab02_ED2.X.production.o
-_isr 242 0 CODE 0 text8 dist/default/production\lab02_ED2.X.production.o
+_cmd 226 0 CODE 0 text7 dist/default/production\lab02_ED2.X.production.o
+_dat 1FC 0 CODE 0 text2 dist/default/production\lab02_ED2.X.production.o
+_isr 250 0 CODE 0 text8 dist/default/production\lab02_ED2.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
-__end_of_cmd 242 0 CODE 0 text7 dist/default/production\lab02_ED2.X.production.o
-__end_of_dat 218 0 CODE 0 text2 dist/default/production\lab02_ED2.X.production.o
-__end_of_isr 250 0 CODE 0 text8 dist/default/production\lab02_ED2.X.production.o
-_lcd_init 160 0 CODE 0 text6 dist/default/production\lab02_ED2.X.production.o
+__end_of_cmd 250 0 CODE 0 text7 dist/default/production\lab02_ED2.X.production.o
+__end_of_dat 226 0 CODE 0 text2 dist/default/production\lab02_ED2.X.production.o
+__end_of_isr 25E 0 CODE 0 text8 dist/default/production\lab02_ED2.X.production.o
+_lcd_init 19E 0 CODE 0 text6 dist/default/production\lab02_ED2.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-__stringtab 192 0 STRING 0 strings dist/default/production\lab02_ED2.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\ANDYBO~1\AppData\Local\Temp\s59c.o
-__end_of_lcd_init 192 0 CODE 0 text6 dist/default/production\lab02_ED2.X.production.o
+__stringtab 122 0 STRING 0 strings dist/default/production\lab02_ED2.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
+__end_of_lcd_init 1D0 0 CODE 0 text6 dist/default/production\lab02_ED2.X.production.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 __pmaintext 2A 0 CODE 0 maintext dist/default/production\lab02_ED2.X.production.o
 lcd_linea@temp 78 0 COMMON 1 cstackCOMMON dist/default/production\lab02_ED2.X.production.o
@@ -285,7 +285,7 @@ __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 _ADCON0bits 1F 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 _ADCON1bits 9F 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
-__end_of__stringtab 19E 0 STRING 0 strings dist/default/production\lab02_ED2.X.production.o
+__end_of__stringtab 12E 0 STRING 0 strings dist/default/production\lab02_ED2.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -300,14 +300,14 @@ __Hintentry 18 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __size_of_adc_config 0 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 __Hreset_vec 6 0 CODE 0 reset_vec -
-__ptext1 122 0 CODE 0 text1 dist/default/production\lab02_ED2.X.production.o
-__ptext2 1EE 0 CODE 0 text2 dist/default/production\lab02_ED2.X.production.o
+__ptext1 160 0 CODE 0 text1 dist/default/production\lab02_ED2.X.production.o
+__ptext2 1FC 0 CODE 0 text2 dist/default/production\lab02_ED2.X.production.o
 __ptext3 E2 0 CODE 0 text3 dist/default/production\lab02_ED2.X.production.o
-__ptext4 1C2 0 CODE 0 text4 dist/default/production\lab02_ED2.X.production.o
+__ptext4 1D0 0 CODE 0 text4 dist/default/production\lab02_ED2.X.production.o
 __ptext5 8A 0 CODE 0 text5 dist/default/production\lab02_ED2.X.production.o
-__ptext6 160 0 CODE 0 text6 dist/default/production\lab02_ED2.X.production.o
-__ptext7 218 0 CODE 0 text7 dist/default/production\lab02_ED2.X.production.o
-__ptext8 242 0 CODE 0 text8 dist/default/production\lab02_ED2.X.production.o
+__ptext6 19E 0 CODE 0 text6 dist/default/production\lab02_ED2.X.production.o
+__ptext7 226 0 CODE 0 text7 dist/default/production\lab02_ED2.X.production.o
+__ptext8 250 0 CODE 0 text8 dist/default/production\lab02_ED2.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -318,7 +318,7 @@ _ANSELbits 188 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\lab02_ED2.X.production.o
 __Hend_init 1E 0 CODE 0 end_init -
 __end_of_main 8A 0 CODE 0 maintext dist/default/production\lab02_ED2.X.production.o
-__end_of_show 160 0 CODE 0 text1 dist/default/production\lab02_ED2.X.production.o
+__end_of_show 19E 0 CODE 0 text1 dist/default/production\lab02_ED2.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 _TRISB 86 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
@@ -332,7 +332,7 @@ __size_of_cmd 0 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 __size_of_dat 0 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 __size_of_isr 0 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 __initialization 1E 0 CODE 0 cinit dist/default/production\lab02_ED2.X.production.o
-__pstrings 192 0 STRING 0 strings dist/default/production\lab02_ED2.X.production.o
+__pstrings 122 0 STRING 0 strings dist/default/production\lab02_ED2.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -358,11 +358,11 @@ __pstrings 192 0 STRING 0 strings dist/default/production\lab02_ED2.X.production
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text4 0 E1 1C2 47 2
+text1 0 B0 160 7F 2
 cstackCOMMON 1 70 70 C 1
-intentry 0 4 8 C5 2
+intentry 0 4 8 8D 2
 reset_vec 0 0 0 3 2
-strings 0 C9 192 18 2
+strings 0 91 122 1F 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

@@ -2694,7 +2694,7 @@ void main(void)
     while(1)
     {
         lcd_linea(1,1);
-        show("wenas ly");
+        show(" sen1 sen2 sen3");
         lcd_linea(2,1);
         show("probemos");
     }
