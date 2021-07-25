@@ -4,11 +4,11 @@ Microcontrolador: PIC16F887
 Autor: Andy Bonilla
 Compilador: pic-as (v2.30), MPLABX v5.45
     
-Programa: laboratorio 1
+Programa: laboratorio 2
 Hardware: PIC16F887
     
-Creado: 16 de julio de 2021    
-Descripcion: 
+Creado: 23 de julio de 2021    
+Descripcion: un laboratoria bien fumado tbh pero chilero
 ------------------------------------------------------------------------------*/
 
 // CONFIG1
