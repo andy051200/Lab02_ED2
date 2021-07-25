@@ -38,7 +38,8 @@ void dat(unsigned char b);      //funcion para mandar datos
 void show(unsigned char *s);    //funcion para mandar informacion ASCII
 void lcd_linea(char a, char b); //funcion para poner cursor
 void lcd_mov_derecha(void);     //funcion para mover a la derecha
-void lcd_mov_izquierda(void);   //funcion para mover a la izquierda
+void lcd_mov_izquierda(void);      //funcion para mover a la izquierda
+
 
 #endif	/* LCD_H */
 

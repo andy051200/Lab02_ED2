@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
+$C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -77,13 +77,13 @@ STRING 12F-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\lab02_ED2.X.production.o
-F cinit CODE >831:C:\Users\ANDYBO~1\AppData\Local\Temp\semg.s
-F cinit CODE >834:C:\Users\ANDYBO~1\AppData\Local\Temp\semg.s
-F cinit CODE >848:C:\Users\ANDYBO~1\AppData\Local\Temp\semg.s
-10 cinit CODE >849:C:\Users\ANDYBO~1\AppData\Local\Temp\semg.s
-11 cinit CODE >855:C:\Users\ANDYBO~1\AppData\Local\Temp\semg.s
-11 cinit CODE >857:C:\Users\ANDYBO~1\AppData\Local\Temp\semg.s
-12 cinit CODE >858:C:\Users\ANDYBO~1\AppData\Local\Temp\semg.s
+F cinit CODE >831:C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.s
+F cinit CODE >834:C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.s
+F cinit CODE >848:C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.s
+10 cinit CODE >849:C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.s
+11 cinit CODE >855:C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.s
+11 cinit CODE >857:C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.s
+12 cinit CODE >858:C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.s
 4 intentry CODE >61:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
 128 text8 CODE >61:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
 128 text8 CODE >66:C:\Users\Andy Bonilla\Documents\GitHub\ED2\Lab02_ED2\lab02_ED2.X\main_lab2.c
@@ -182,25 +182,25 @@ __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
+___sp 0 0 STACK 2 stack C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.o
 _main 2A 0 CODE 0 maintext dist/default/production\lab02_ED2.X.production.o
 _show 160 0 CODE 0 text1 dist/default/production\lab02_ED2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 cmd@a 74 0 COMMON 1 cstackCOMMON dist/default/production\lab02_ED2.X.production.o
 dat@b 74 0 COMMON 1 cstackCOMMON dist/default/production\lab02_ED2.X.production.o
-start 18 0 CODE 0 init C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
+start 18 0 CODE 0 init C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.o
 __size_of_main 0 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 __size_of_show 0 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
 show@s 76 0 COMMON 1 cstackCOMMON dist/default/production\lab02_ED2.X.production.o
 __end_of_lcd_linea E2 0 CODE 0 text5 dist/default/production\lab02_ED2.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.o
 __size_of_lcd_linea 0 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
@@ -213,8 +213,8 @@ _ANSELH 189 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 _conversion1 7B 0 COMMON 1 bssCOMMON dist/default/production\lab02_ED2.X.production.o
 _conversion2 7A 0 COMMON 1 bssCOMMON dist/default/production\lab02_ED2.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
-___stacklo 0 0 ABS 0 - C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
+___stackhi 0 0 ABS 0 - C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.o
+___stacklo 0 0 ABS 0 - C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 _adc_config 1D0 0 CODE 0 text4 dist/default/production\lab02_ED2.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\lab02_ED2.X.production.o
@@ -222,7 +222,7 @@ _TRISCbits 87 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 lcd_linea@a 77 0 COMMON 1 cstackCOMMON dist/default/production\lab02_ED2.X.production.o
 lcd_linea@b 75 0 COMMON 1 cstackCOMMON dist/default/production\lab02_ED2.X.production.o
 lcd_linea@z 79 0 COMMON 1 cstackCOMMON dist/default/production\lab02_ED2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
+___int_sp 0 0 STACK 2 stack C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -276,7 +276,7 @@ __end_of_isr 25E 0 CODE 0 text8 dist/default/production\lab02_ED2.X.production.o
 _lcd_init 19E 0 CODE 0 text6 dist/default/production\lab02_ED2.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
 __stringtab 122 0 STRING 0 strings dist/default/production\lab02_ED2.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\ANDYBO~1\AppData\Local\Temp\semg.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\ANDYBO~1\AppData\Local\Temp\scvo.o
 __end_of_lcd_init 1D0 0 CODE 0 text6 dist/default/production\lab02_ED2.X.production.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\lab02_ED2.X.production.o
 __pmaintext 2A 0 CODE 0 maintext dist/default/production\lab02_ED2.X.production.o
