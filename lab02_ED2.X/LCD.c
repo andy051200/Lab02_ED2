@@ -6,114 +6,85 @@
  * Revision history: 
  */
 
-//LCD Functions Developed by electroSome
+/* 
+ * File:   LCD.h
+ * Author: Andy Bonilla (hice una Frankenstein)
+ *
+ * Created on 24 de julio de 2021, 11:32 PM
+ */
 
+
+//LCD Functions Developed by electroSome y modificadas por yo
+/*-----------------------------------------------------------------------------
+ ----------------------------LIBRERIAS-----------------------------------------
+ -----------------------------------------------------------------------------*/
 #include "LCD.h"
 
-void Lcd_Port(char a) {
-    if (a & 1)
-        D4 = 1;
-    else
-        D4 = 0;
+/*-----------------------------------------------------------------------------
+-------------------------------- FUNCIONES -----------------------------------
+-----------------------------------------------------------------------------*/
 
-    if (a & 2)
-        D5 = 1;
-    else
-        D5 = 0;
-
-    if (a & 4)
-        D6 = 1;
-    else
-        D6 = 0;
-
-    if (a & 8)
-        D7 = 1;
-    else
-        D7 = 0;
+//--------funcion para inicializar el lcd
+void lcd_init()
+{
+	cmd(0x38);
+	cmd(0x0c);
+	cmd(0x06);
+	cmd(0x80);
 }
 
-void Lcd_Cmd(char a) {
-    RS = 0; // => RS = 0 // Dato en el puerto lo va interpretar como comando
-    Lcd_Port(a);
-    EN = 1; // => E = 1
-    __delay_ms(4);
-    EN = 0; // => E = 0
+//--------funcion para configuracion de comandos
+void cmd(unsigned char a)
+{
+	PORTB=a;
+	rs=0;
+	rw=0;
+	en=1;
+    __delay_ms(1);
+	en=0;
 }
 
-void Lcd_Clear(void) {
-    Lcd_Cmd(0);
-    Lcd_Cmd(1);
+//--------funcion para envio de datos
+void dat(unsigned char b)
+{
+	PORTB=b;
+	rs=1;
+	rw=0;
+	en=1;
+	__delay_ms(1);
+	en=0;
 }
 
-void Lcd_Set_Cursor(char a, char b) {
-    char temp, z, y;
+//--------funcion para envio de informacion con punteros
+void show(unsigned char *s)
+{
+	while(*s) {
+		dat(*s++);
+	}
+}
+
+//--------funcion para seleccion de linea en lcd
+void lcd_linea(char a, char b) {
+    char temp, z;
     if (a == 1) {
         temp = 0x80 + b - 1;
-        z = temp >> 4;
-        y = temp & 0x0F;
-        Lcd_Cmd(z);
-        Lcd_Cmd(y);
+        z = temp;       //como es de 8bits se usa toda la variable
+        cmd(z);     //se manda valor al puerto
+        
     } else if (a == 2) {
         temp = 0xC0 + b - 1;
-        z = temp >> 4;
-        y = temp & 0x0F;
-        Lcd_Cmd(z);
-        Lcd_Cmd(y);
+        z = temp;     //como es de 8bits se usa toda la variables
+        cmd(z);   //se manda valor al puerto
+        
     }
 }
 
-void Lcd_Init(void)         //secuencia de inicializacion
-{   
-    Lcd_Port(0x00);
-    __delay_ms(20);
-    Lcd_Cmd(0x03);
-    __delay_ms(5);
-    Lcd_Cmd(0x03);
-    __delay_ms(11);
-    Lcd_Cmd(0x03);
-    /////////////////////////////////////////////////////
-    Lcd_Cmd(0x02);
-    Lcd_Cmd(0x02);
-    Lcd_Cmd(0x08);
-    Lcd_Cmd(0x00);
-    Lcd_Cmd(0x0C);
-    Lcd_Cmd(0x00);
-    Lcd_Cmd(0x06);
+//--------funcion para mover a la derecha
+void lcd_mov_derecha(void) {
+    cmd(0x1c);      //se agrupan los dos nibbles en un byte
 }
 
-void Lcd_Write_Char(char a) {
-    char temp, y;
-    temp=a;
-    PORTB=temp;
-    
-    
-    temp = a & 0x0F;
-    y = a & 0xF0;
-    RS = 1; // => RS = 1
-    Lcd_Port(y >> 4); //Data transfer
-    EN = 1;
-    __delay_us(40);
-    EN = 0;
-    Lcd_Port(temp);
-    EN = 1;
-    __delay_us(40);
-    EN = 0;
+//--------funcion para mover a la izquierda
+void lcd_mov_izquierda(void) {
+    cmd(0x18);      //se agrupan los dos nibbles en un byte
 }
-
-void Lcd_Write_String(char *a) {
-    int i;
-    for (i = 0; a[i] != '\0'; i++)
-        Lcd_Write_Char(a[i]);
-}
-
-void Lcd_Shift_Right(void) {
-    Lcd_Cmd(0x01);
-    Lcd_Cmd(0x0C);
-}
-
-void Lcd_Shift_Left(void) {
-    Lcd_Cmd(0x01);
-    Lcd_Cmd(0x08);
-}
-
-

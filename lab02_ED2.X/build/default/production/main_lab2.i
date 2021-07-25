@@ -2651,43 +2651,25 @@ void adc_config(void);
 # 36 "main_lab2.c" 2
 
 # 1 "./LCD.h" 1
-# 47 "./LCD.h"
-void Lcd_Port(char a);
-
-void Lcd_Cmd(char a);
-
-void Lcd_Clear(void);
-
-void Lcd_Set_Cursor(char a, char b);
-
-void Lcd_Init(void);
-
-void Lcd_Write_Char(char a);
-
-void Lcd_Write_String(char *a);
-
-void Lcd_Shift_Right(void);
-
-void Lcd_Shift_Left(void);
-# 37 "main_lab2.c" 2
-# 52 "main_lab2.c"
-void setup(void);
-void toggle_adc(void);
-
+# 35 "./LCD.h"
 void lcd_init();
 void cmd(unsigned char a);
 void dat(unsigned char b);
 void show(unsigned char *s);
-
-
-
+void lcd_linea(char a, char b);
+void lcd_mov_derecha(void);
+void lcd_mov_izquierda(void);
+# 37 "main_lab2.c" 2
+# 48 "main_lab2.c"
+void setup(void);
+void toggle_adc(void);
 
 
 
 
 unsigned char conversion1;
 unsigned char conversion2;
-int i;
+
 
 
 
@@ -2704,22 +2686,17 @@ void __attribute__((picinterrupt(("")))) isr(void)
 
 void main(void)
 {
-
-    unsigned int i;
- TRISB=0;
-    TRISCbits.TRISC0=0;
-    TRISCbits.TRISC1=0;
-    TRISCbits.TRISC2=0;
- lcd_init();
+    setup();
+    lcd_init();
  cmd(0x90);
- show("wenas ly");
+
 
     while(1)
     {
-        for(i=0;i<15000;i++);
-  cmd(0x18);
-
-
+        lcd_linea(1,1);
+        show("wenas ly");
+        lcd_linea(2,1);
+        show("probemos");
     }
 }
 
@@ -2730,40 +2707,33 @@ void setup(void)
 
     ANSEL=0;
     ANSELH=0;
-# 132 "main_lab2.c"
+    ANSELbits.ANS0=1;
+    ANSELbits.ANS1=1;
+
+
+    TRISB=0;
+    TRISCbits.TRISC0=0;
+    TRISCbits.TRISC1=0;
+    TRISCbits.TRISC2=0;
+
+
     OSCCONbits.IRCF = 0b111;
     OSCCONbits.SCS = 1;
-
-
-    OPTION_REGbits.T0CS = 0;
-    OPTION_REGbits.T0SE = 0;
-    OPTION_REGbits.PSA = 0;
-    OPTION_REGbits.PS2 = 1;
-    OPTION_REGbits.PS1 = 1;
-    OPTION_REGbits.PS0 = 0;
-    TMR0 = 255;
-
-
-    OPTION_REGbits.nRBPU = 0;
-    WPUBbits.WPUB0 = 1;
-    WPUBbits.WPUB1 = 1;
-    WPUBbits.WPUB2 = 1;
-
-
+# 117 "main_lab2.c"
     adc_config();
 
 
     INTCONbits.GIE=1;
-    INTCONbits.T0IE=1;
+    INTCONbits.T0IE=0;
     INTCONbits.T0IF=0;
-    INTCONbits.RBIE=1;
+    INTCONbits.RBIE=0;
     INTCONbits.RBIF=0;
 
-    PIE1bits.ADIE = 1 ;
+    PIE1bits.ADIE = 0 ;
     PIR1bits.ADIF = 0;
 
-    IOCBbits.IOCB0=1;
-    IOCBbits.IOCB1=1;
+
+
     return;
 }
 
@@ -2792,40 +2762,4 @@ void toggle_adc(void)
             ADCON0bits.GO=1;
         }
     return;
-}
-
-
-void lcd_init()
-{
- cmd(0x38);
- cmd(0x0c);
- cmd(0x06);
- cmd(0x80);
-}
-
-void cmd(unsigned char a)
-{
- PORTB=a;
- RC0=0;
- RC1=0;
- RC2=1;
-    for(i=0;i<1000;i++);
- RC2=0;
-}
-
-void dat(unsigned char b)
-{
- PORTB=b;
- RC0=1;
- RC1=0;
- RC2=1;
- for(i=0;i<1000;i++);
- RC2=0;
-}
-
-void show(unsigned char *s)
-{
- while(*s) {
-  dat(*s++);
- }
 }
