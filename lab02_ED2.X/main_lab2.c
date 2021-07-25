@@ -1,84 +1,229 @@
-/*
- * File:   main.c
- * Author: Pablo
- * Ejemplo de uso de la LCD 16x2 en modo 4 bits
- * Se utiliz� y se adaptaron las librer�as de Ligo George 
- * de la p�gina www.electrosome.com
- * Enlace: https://electrosome.com/lcd-pic-mplab-xc8/
- * Created on 31 de enero de 2020, 11:20 AM
- */
+/*------------------------------------------------------------------------------
+Archivo: mainsproject.s
+Microcontrolador: PIC16F887
+Autor: Andy Bonilla
+Compilador: pic-as (v2.30), MPLABX v5.45
+    
+Programa: laboratorio 1
+Hardware: PIC16F887
+    
+Creado: 16 de julio de 2021    
+Descripcion: 
+------------------------------------------------------------------------------*/
 
-#pragma config FOSC = EXTRC_NOCLKOUT// Oscillator Selection bits (RCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, RC on RA7/OSC1/CLKIN)
-#pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled and can be enabled by SWDTEN bit of the WDTCON register)
+// CONFIG1
+#pragma config FOSC = INTRC_NOCLKOUT   //configuracion de oscilador interno
+#pragma config WDTE = OFF       // Watchdog Timer Enable bit
 #pragma config PWRTE = OFF      // Power-up Timer Enable bit (PWRT disabled)
-#pragma config MCLRE = OFF      // RE3/MCLR pin function select bit (RE3/MCLR pin function is digital input, MCLR internally tied to VDD)
-#pragma config CP = OFF         // Code Protection bit (Program memory code protection is disabled)
-#pragma config CPD = OFF        // Data Code Protection bit (Data memory code protection is disabled)
-#pragma config BOREN = OFF      // Brown Out Reset Selection bits (BOR disabled)
-#pragma config IESO = OFF       // Internal External Switchover bit (Internal/External Switchover mode is disabled)
-#pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enabled bit (Fail-Safe Clock Monitor is disabled)
-#pragma config LVP = OFF        // Low Voltage Programming Enable bit (RB3 pin has digital I/O, HV on MCLR must be used for programming)
+#pragma config MCLRE = OFF      // master clear off 
+#pragma config CP = OFF         // Code Protection bit off
+#pragma config CPD = OFF        // Data Code Protection bit off
+#pragma config BOREN = OFF      // Brown Out Reset Selection bits off
+#pragma config IESO = OFF       // Internal External Switchover bit off
+#pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enabled bit off 
+#pragma config LVP = OFF        // Low Voltage Programming Enable bit off 
 
 // CONFIG2
-#pragma config BOR4V = BOR40V   // Brown-out Reset Selection bit (Brown-out Reset set to 4.0V)
-#pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits (Write protection off)
+#pragma config BOR4V = BOR40V   // Brown-out Reset Selection bit 
+#pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits 
 
-#include <xc.h>
-#include <stdint.h>
+/*-----------------------------------------------------------------------------
+ ----------------------------LIBRERIAS-----------------------------------------
+ -----------------------------------------------------------------------------*/
+#include <xc.h>                 //se incluye libreria del compilador
+#include <stdint.h>             //se incluye libreria
+#include <pic16f887.h>          //se incluye libreria del pic
+#include "adc_config.h"         //se incluye libreria del adc
+#include "LCD.h"                //se incluye libreria de LCD
 
+/*-----------------------------------------------------------------------------
+ ------------------------DIRECTIVAS DE COMPILADOR------------------------------
+ -----------------------------------------------------------------------------*/
 #define _XTAL_FREQ 8000000
-#define RS RD2
-#define EN RD3
-#define D4 RD4
-#define D5 RB5
-#define D6 RD6
-#define D7 RD7
+#define rs RC0
+#define rw RC1
+#define en RC2
+#define delay for(i=0;i<1000;i++)
 
-#include "LCD.h"
 
-void main(void) {
-  unsigned int a;
-  TRISD = 0x00;
-  Lcd_Init();
-  while(1)
-  {
-    Lcd_Clear();
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("LCD Library for");
-    Lcd_Set_Cursor(2,1);
-    Lcd_Write_String("MPLAB XC8");
-    __delay_ms(2000);
-    Lcd_Clear();
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("Developed By");
-    Lcd_Set_Cursor(2,1);
-    Lcd_Write_String("electroSome");
-    __delay_ms(2000);
-    Lcd_Clear();
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("www.electroSome.com");
+/*-----------------------------------------------------------------------------
+ ------------------------ PROTOTIPOS DE FUNCIONES ------------------------------
+ -----------------------------------------------------------------------------*/
+void setup(void);       //prototipo de funcion de configuracion
+void toggle_adc(void);  //prototipo de funcion de toggle de canales ADC
+//----
+void lcd_init();
+void cmd(unsigned char a);
+void dat(unsigned char b);
+void show(unsigned char *s);
 
-    for(a=0;a<15;a++)
+
+
+
+/*-----------------------------------------------------------------------------
+ ----------------------- VARIABLES A IMPLEMTENTAR------------------------------
+ -----------------------------------------------------------------------------*/
+unsigned char conversion1;  //variable que almacena potenciometro 1
+unsigned char conversion2;  //variable que almacena potenciometro 2
+int i;
+
+/*-----------------------------------------------------------------------------
+ ---------------------------- INTERRUPCIONES ----------------------------------
+ -----------------------------------------------------------------------------*/
+void __interrupt() isr(void) //funcion de interrupciones
+{
+    //------interrupcion 
+    
+   
+}
+
+/*-----------------------------------------------------------------------------
+ ----------------------------- MAIN LOOP --------------------------------------
+ -----------------------------------------------------------------------------*/
+void main(void)
+{
+    //setup();
+    unsigned int i;
+	TRISB=0;
+    TRISCbits.TRISC0=0;
+    TRISCbits.TRISC1=0;
+    TRISCbits.TRISC2=0;
+	lcd_init();
+	cmd(0x90);
+	show("wenas ly");
+    
+    while(1)
     {
-        __delay_ms(300);
-        Lcd_Shift_Left();
+        for(i=0;i<15000;i++);
+		cmd(0x18);
+		//for(i=0;i<15000;i++);
+        
     }
+}
+/*-----------------------------------------------------------------------------
+ ---------------------------------- SET UP -----------------------------------
+ -----------------------------------------------------------------------------*/
+void setup(void)
+{
+    //CONFIGURACION DE ENTRDAS ANALOGICAS
+    ANSEL=0;                //sin entradas analógicas
+    ANSELH=0;               //sin entradas analogicas
+    /*ANSELbits.ANS0=1;       //An0 como entrada analogica, potenciometro 1
+    ANSELbits.ANS1=1;       //An1 como entrada analogica, potenciometro 2
+    
+    //CONFIGURACION DE IN-OUT DE PUERTOS
+    TRISAbits.TRISA0=1;     //AN0 como entrada de potanciometro
+    TRISAbits.TRISA0=0;     //AN1 como salida de led de alerta
+    
+    TRISBbits.TRISB0=1;     //RB0 como entrada, boton SUMA
+    TRISBbits.TRISB1=1;     //RB1 como entrada, boton RESTA
 
-    for(a=0;a<15;a++)
-    {
-        __delay_ms(300);
-        Lcd_Shift_Right();
-    }
+    TRISC=0;                //PortC como salida, contador LEDS
+    TRISD=0;                //PortD como salida, 7 segmentos
+    TRISE=0;                //PortE como salida, multiplexada 7 segmentos
+    
+    PORTA=0;             //se limpia PortA
+    PORTB=0;             //se limpia PortA
+    PORTC=0;             //se limpia PortE
+    PORTD=0;             //se limpia PortE
+    PORTE=0;             //se limpia PortE*/
+    
+    //CONFIGURACION DE RELOJ
+    OSCCONbits.IRCF = 0b111; //Fosc 8MHz
+    OSCCONbits.SCS = 1;      //configuracion de reloj interno
+    
+    //CONFIGURACION DEL TIMER0
+    OPTION_REGbits.T0CS = 0;  // bit 5  TMR0 Clock Source Select bit...0 = Internal Clock (CLKO) 1 = Transition on T0CKI pin
+    OPTION_REGbits.T0SE = 0;  // bit 4 TMR0 Source Edge Select bit 0 = low/high 1 = high/low
+    OPTION_REGbits.PSA = 0;   // bit 3  Prescaler Assignment bit...0 = Prescaler is assigned to the Timer0
+    OPTION_REGbits.PS2 = 1;   // bits 2-0  PS2:PS0: Prescaler Rate Select bits
+    OPTION_REGbits.PS1 = 1;
+    OPTION_REGbits.PS0 = 0;
+    TMR0 = 255;             // preset for timer register
 
-    Lcd_Clear();
-    Lcd_Set_Cursor(2,1);
-    Lcd_Write_Char('H');
-    Lcd_Write_Char('o');
-    Lcd_Write_Char('l');
-    Lcd_Write_Char('a');
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("Hola Mundo");
-    __delay_ms(2000);
-  }
+    //WEAK PULL UPs PORTB
+    OPTION_REGbits.nRBPU = 0;   // enable Individual pull-ups
+    WPUBbits.WPUB0 = 1;         // enable Pull-Up de RB0 
+    WPUBbits.WPUB1 = 1;         // enable Pull-Up de RB1 
+    WPUBbits.WPUB2 = 1;         // enable Pull-Up de RB2 
+
+    //IMPORTAR FUNCION DEL ADC DESDE LIBRERIA
+    adc_config();               //se llama funcion
+    
+    //CONFIGURACION DE INTERRUPCIONES
+    INTCONbits.GIE=1;           //se habilitan las interrupciones globales
+    INTCONbits.T0IE=1;          // enable bit de int timer0
+    INTCONbits.T0IF=0;        //se apaga la bandera de int timer0
+    INTCONbits.RBIE=1;          // se habilita IntOnChange
+    INTCONbits.RBIF=0;          // se apaga la bandera de IntOnChangeB  
+    //CONFIGURACION INTERRUPCION DEL ADC
+    PIE1bits.ADIE = 1 ; //se prende interrupcion por ADC
+    PIR1bits.ADIF = 0; // se baja bandera de conversion
+    //INTERRUPT ON CHANGE PORT B
+    IOCBbits.IOCB0=1;           //se habilita IOCB RB0
+    IOCBbits.IOCB1=1;           //se habilita IOCB RB1
     return;
+}
+
+/*-----------------------------------------------------------------------------
+ --------------------------------- FUNCIONES ----------------------------------
+ -----------------------------------------------------------------------------*/
+void toggle_adc(void)
+{
+    if (ADCON0bits.GO==0)
+    {
+        switch(ADCON0bits.CHS)
+        {
+            case(0):
+                conversion1=ADRESH;         //potenciometro 1
+                __delay_us(100);            //delay para cargar capacitor          
+                ADCON0bits.CHS=1;           //switch de canal
+                break;
+                    
+            case(1):
+                conversion2=ADRESH;         //potenciometro 2
+                __delay_us(100);            //delay para cargar capacitor
+                ADCON0bits.CHS=0;           //switch de canal
+                break;
+            }
+            __delay_us(100);                //delay para carga de capacitor
+            ADCON0bits.GO=1;                //se inicia otra conversion ADC
+        }
+    return;
+}
+
+
+void lcd_init()
+{
+	cmd(0x38);
+	cmd(0x0c);
+	cmd(0x06);
+	cmd(0x80);
+}
+
+void cmd(unsigned char a)
+{
+	PORTB=a;
+	rs=0;
+	rw=0;
+	en=1;
+    delay;
+	en=0;
+}
+
+void dat(unsigned char b)
+{
+	PORTB=b;
+	rs=1;
+	rw=0;
+	en=1;
+	delay;
+	en=0;
+}
+
+void show(unsigned char *s)
+{
+	while(*s) {
+		dat(*s++);
+	}
 }

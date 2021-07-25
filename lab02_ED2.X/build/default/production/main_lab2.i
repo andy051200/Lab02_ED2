@@ -7,8 +7,8 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main_lab2.c" 2
-# 11 "main_lab2.c"
-#pragma config FOSC = EXTRC_NOCLKOUT
+# 15 "main_lab2.c"
+#pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
@@ -22,6 +22,9 @@
 
 #pragma config BOR4V = BOR40V
 #pragma config WRT = OFF
+
+
+
 
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
@@ -2504,7 +2507,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 26 "main_lab2.c" 2
+# 33 "main_lab2.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2639,8 +2642,14 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 27 "main_lab2.c" 2
-# 37 "main_lab2.c"
+# 34 "main_lab2.c" 2
+
+
+# 1 "./adc_config.h" 1
+# 14 "./adc_config.h"
+void adc_config(void);
+# 36 "main_lab2.c" 2
+
 # 1 "./LCD.h" 1
 # 47 "./LCD.h"
 void Lcd_Port(char a);
@@ -2661,51 +2670,162 @@ void Lcd_Shift_Right(void);
 
 void Lcd_Shift_Left(void);
 # 37 "main_lab2.c" 2
+# 52 "main_lab2.c"
+void setup(void);
+void toggle_adc(void);
+
+void lcd_init();
+void cmd(unsigned char a);
+void dat(unsigned char b);
+void show(unsigned char *s);
 
 
-void main(void) {
-  unsigned int a;
-  TRISD = 0x00;
-  Lcd_Init();
-  while(1)
-  {
-    Lcd_Clear();
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("LCD Library for");
-    Lcd_Set_Cursor(2,1);
-    Lcd_Write_String("MPLAB XC8");
-    _delay((unsigned long)((2000)*(8000000/4000.0)));
-    Lcd_Clear();
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("Developed By");
-    Lcd_Set_Cursor(2,1);
-    Lcd_Write_String("electroSome");
-    _delay((unsigned long)((2000)*(8000000/4000.0)));
-    Lcd_Clear();
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("www.electroSome.com");
 
-    for(a=0;a<15;a++)
+
+
+
+
+unsigned char conversion1;
+unsigned char conversion2;
+int i;
+
+
+
+
+void __attribute__((picinterrupt(("")))) isr(void)
+{
+
+
+
+}
+
+
+
+
+void main(void)
+{
+
+    unsigned int i;
+ TRISB=0;
+    TRISCbits.TRISC0=0;
+    TRISCbits.TRISC1=0;
+    TRISCbits.TRISC2=0;
+ lcd_init();
+ cmd(0x90);
+ show("wenas ly");
+
+    while(1)
     {
-        _delay((unsigned long)((300)*(8000000/4000.0)));
-        Lcd_Shift_Left();
-    }
+        for(i=0;i<15000;i++);
+  cmd(0x18);
 
-    for(a=0;a<15;a++)
-    {
-        _delay((unsigned long)((300)*(8000000/4000.0)));
-        Lcd_Shift_Right();
-    }
 
-    Lcd_Clear();
-    Lcd_Set_Cursor(2,1);
-    Lcd_Write_Char('H');
-    Lcd_Write_Char('o');
-    Lcd_Write_Char('l');
-    Lcd_Write_Char('a');
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("Hola Mundo");
-    _delay((unsigned long)((2000)*(8000000/4000.0)));
-  }
+    }
+}
+
+
+
+void setup(void)
+{
+
+    ANSEL=0;
+    ANSELH=0;
+# 132 "main_lab2.c"
+    OSCCONbits.IRCF = 0b111;
+    OSCCONbits.SCS = 1;
+
+
+    OPTION_REGbits.T0CS = 0;
+    OPTION_REGbits.T0SE = 0;
+    OPTION_REGbits.PSA = 0;
+    OPTION_REGbits.PS2 = 1;
+    OPTION_REGbits.PS1 = 1;
+    OPTION_REGbits.PS0 = 0;
+    TMR0 = 255;
+
+
+    OPTION_REGbits.nRBPU = 0;
+    WPUBbits.WPUB0 = 1;
+    WPUBbits.WPUB1 = 1;
+    WPUBbits.WPUB2 = 1;
+
+
+    adc_config();
+
+
+    INTCONbits.GIE=1;
+    INTCONbits.T0IE=1;
+    INTCONbits.T0IF=0;
+    INTCONbits.RBIE=1;
+    INTCONbits.RBIF=0;
+
+    PIE1bits.ADIE = 1 ;
+    PIR1bits.ADIF = 0;
+
+    IOCBbits.IOCB0=1;
+    IOCBbits.IOCB1=1;
     return;
+}
+
+
+
+
+void toggle_adc(void)
+{
+    if (ADCON0bits.GO==0)
+    {
+        switch(ADCON0bits.CHS)
+        {
+            case(0):
+                conversion1=ADRESH;
+                _delay((unsigned long)((100)*(8000000/4000000.0)));
+                ADCON0bits.CHS=1;
+                break;
+
+            case(1):
+                conversion2=ADRESH;
+                _delay((unsigned long)((100)*(8000000/4000000.0)));
+                ADCON0bits.CHS=0;
+                break;
+            }
+            _delay((unsigned long)((100)*(8000000/4000000.0)));
+            ADCON0bits.GO=1;
+        }
+    return;
+}
+
+
+void lcd_init()
+{
+ cmd(0x38);
+ cmd(0x0c);
+ cmd(0x06);
+ cmd(0x80);
+}
+
+void cmd(unsigned char a)
+{
+ PORTB=a;
+ RC0=0;
+ RC1=0;
+ RC2=1;
+    for(i=0;i<1000;i++);
+ RC2=0;
+}
+
+void dat(unsigned char b)
+{
+ PORTB=b;
+ RC0=1;
+ RC1=0;
+ RC2=1;
+ for(i=0;i<1000;i++);
+ RC2=0;
+}
+
+void show(unsigned char *s)
+{
+ while(*s) {
+  dat(*s++);
+ }
 }
