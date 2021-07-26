@@ -1,4 +1,4 @@
-# 1 "main_lab2.c"
+# 1 "uart_config.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,27 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main_lab2.c" 2
-# 15 "main_lab2.c"
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
-
-
-
+# 1 "uart_config.c" 2
+# 11 "uart_config.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2507,416 +2488,33 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 33 "main_lab2.c" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
-# 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int8_t;
-
-
-
-
-
-
-typedef signed int int16_t;
-
-
-
-
-
-
-
-typedef __int24 int24_t;
-
-
-
-
-
-
-
-typedef signed long int int32_t;
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint8_t;
-
-
-
-
-
-typedef unsigned int uint16_t;
-
-
-
-
-
-
-typedef __uint24 uint24_t;
-
-
-
-
-
-
-typedef unsigned long int uint32_t;
-# 88 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_least8_t;
-
-
-
-
-
-
-
-typedef signed int int_least16_t;
-# 109 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_least24_t;
-# 118 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef signed long int int_least32_t;
-# 136 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_least8_t;
-
-
-
-
-
-
-typedef unsigned int uint_least16_t;
-# 154 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_least24_t;
-
-
-
-
-
-
-
-typedef unsigned long int uint_least32_t;
-# 181 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_fast8_t;
-
-
-
-
-
-
-typedef signed int int_fast16_t;
-# 200 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_fast24_t;
-
-
-
-
-
-
-
-typedef signed long int int_fast32_t;
-# 224 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_fast8_t;
-
-
-
-
-
-typedef unsigned int uint_fast16_t;
-# 240 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_fast24_t;
-
-
-
-
-
-
-typedef unsigned long int uint_fast32_t;
-# 268 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef int32_t intmax_t;
-# 282 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
-typedef uint32_t uintmax_t;
-
-
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-# 34 "main_lab2.c" 2
-
-
-# 1 "./adc_config.h" 1
-# 14 "./adc_config.h"
-void adc_config(void);
-# 36 "main_lab2.c" 2
-
-# 1 "./LCD.h" 1
-# 35 "./LCD.h"
-void lcd_init();
-void cmd(unsigned char a);
-void dat(unsigned char b);
-void show(unsigned char *s);
-void lcd_linea(char a, char b);
-void lcd_mov_derecha(void);
-void lcd_mov_izquierda(void);
-# 37 "main_lab2.c" 2
+# 11 "uart_config.c" 2
 
 # 1 "./uart_config.h" 1
 # 17 "./uart_config.h"
 void uart_config(void);
-# 38 "main_lab2.c" 2
-# 48 "main_lab2.c"
-void setup(void);
-void toggle_adc(void);
-void recepcion_uart(void);
-char datos_ascii(uint8_t numero);
-void conversiones(void);
-char* lcd_ascii();
+# 12 "uart_config.c" 2
 
 
 
 
-unsigned char conversion1;
-unsigned char conversion2;
-unsigned char dato_recibido;
-unsigned char cuenta_uart;
-
-unsigned char centenas1;
-unsigned char decenas1;
-unsigned char unidades1;
-
-unsigned char centenas2;
-unsigned char decenas2;
-unsigned char unidades2;
-
-unsigned char centenas3;
-unsigned char decenas3;
-unsigned char unidades3;
-
-unsigned char suma1;
-unsigned char suma2;
-unsigned char suma3;
 
 
-
-
-void __attribute__((picinterrupt(("")))) isr(void)
+void uart_config(void)
 {
 
-     if(PIR1bits.RCIF)
-    {
-        RCREG=dato_recibido;
-        PIR1bits.RCIF=0;
-    }
 
-}
+    TXSTAbits.SYNC = 0;
+    TXSTAbits.BRGH = 1;
 
+    BAUDCTLbits.BRG16 = 1;
+    SPBRG = 25;
+    SPBRGH = 0;
 
+    RCSTAbits.SPEN = 1;
+    RCSTAbits.RX9 = 0;
 
-
-void main(void)
-{
-    setup();
-    lcd_init();
- cmd(0x90);
-
-
-    while(1)
-    {
-
-        lcd_linea(1,1);
-        show(" cualquier texto ");
-        lcd_linea(2,1);
-        show(lcd_ascii());
-
-
-        toggle_adc();
-        recepcion_uart();
-
-        PORTD=conversion1;
-        PORTE=conversion2;
-
-    }
-}
-
-
-
-void setup(void)
-{
-
-    ANSEL=0;
-    ANSELH=0;
-    ANSELbits.ANS0=1;
-    ANSELbits.ANS1=1;
-
-
-    TRISB=0;
-    TRISCbits.TRISC0=0;
-    TRISCbits.TRISC1=0;
-    TRISCbits.TRISC2=0;
-    TRISD=0;
-    TRISE=0;
-
-    PORTB=0;
-    PORTC=0;
-    PORTD=0;
-    PORTE=0;
-
-
-    OSCCONbits.IRCF = 0b111;
-    OSCCONbits.SCS = 1;
-
-
-    adc_config();
-
-    uart_config();
-
-
-    INTCONbits.GIE=1;
-    INTCONbits.T0IE=0;
-    INTCONbits.T0IF=0;
-    INTCONbits.RBIE=0;
-    INTCONbits.RBIF=0;
-
-    PIE1bits.ADIE = 0 ;
-    PIR1bits.ADIF = 0;
-
-
-
+    RCSTAbits.CREN = 1;
+    TXSTAbits.TXEN = 1;
     return;
-}
-
-
-
-
-
-
-void toggle_adc(void)
-{
-    if (ADCON0bits.GO==0)
-    {
-        switch(ADCON0bits.CHS)
-        {
-            case(0):
-                conversion1=ADRESH;
-                _delay((unsigned long)((100)*(8000000/4000000.0)));
-                ADCON0bits.CHS=1;
-                break;
-
-            case(1):
-                conversion2=ADRESH;
-                _delay((unsigned long)((100)*(8000000/4000000.0)));
-                ADCON0bits.CHS=0;
-                break;
-            }
-            _delay((unsigned long)((100)*(8000000/4000000.0)));
-            ADCON0bits.GO=1;
-        }
-    return;
-}
-
-
-void recepcion_uart(void)
-{
-    switch(dato_recibido)
-    {
-        case(1):
-            cuenta_uart++;
-            break;
-
-        case(2):
-            cuenta_uart--;
-            break;
-
-        default:
-            cuenta_uart=0;
-            break;
-    }
-}
-
-
-char datos_ascii(uint8_t numero)
-{
-    switch(numero)
-    {
-        default:
-            return 48;
-            break;
-
-        case(1):
-            return 49;
-            break;
-
-        case(2):
-            return 50;
-            break;
-
-        case(3):
-            return 51;
-            break;
-
-        case(4):
-            return 52;
-            break;
-
-        case(5):
-            return 53;
-            break;
-
-        case(6):
-            return 54;
-            break;
-
-        case(7):
-            return 55;
-            break;
-
-        case(8):
-            return 56;
-            break;
-
-        case(9):
-            return 57;
-            break;
-
-    }
-}
-
-
-void conversiones()
-{
-    centenas1=((conversion1/100)%10) ;
-    decenas1=((conversion1/10)%10) ;
-    unidades1=(conversion1%10) ;
-
-    centenas1=((conversion2/100)%10) ;
-    decenas1=((conversion2/10)%10) ;
-    unidades1=(conversion2%10) ;
-
-    centenas1=((cuenta_uart/100)%10) ;
-    decenas1=((cuenta_uart/10)%10) ;
-    unidades1=(cuenta_uart%10) ;
-}
-
-
-char* lcd_ascii()
-{
-    char random[16];
-    random[0]=datos_ascii(centenas1);
-    random[1]=datos_ascii(decenas1);
-    random[2]=datos_ascii(unidades1);
-    random[3]=32;
-    random[4]=32;
-    random[5]=datos_ascii(centenas2);
-    random[6]=datos_ascii(decenas2);
-    random[7]=datos_ascii(unidades2);
-    random[8]=32;
-    random[9]=32;
-    random[10]=datos_ascii(centenas3);
-    random[11]=datos_ascii(decenas3);
-    random[12]=datos_ascii(unidades3);
-    random[13]=32;
-    random[14]=32;
-    random[15]=32;
-    return random;
 }

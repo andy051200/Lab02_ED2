@@ -1,6 +1,20 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
+"543 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 543:     struct {
+[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S19 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
+"542
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 542: typedef union {
+[u S18 `S19 1 ]
+[n S18 . . ]
+"553
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 553: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
+[v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
+"1140
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1140: extern volatile unsigned char RCREG __attribute__((address(0x01A)));
+[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
 [p mainexit ]
 "48 main_lab2.c
 [; ;main_lab2.c: 48: void setup(void);
@@ -17,9 +31,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "38
 [; ;./LCD.h: 38: void show(unsigned char *s);
 [v _show `(v ~T0 @X0 0 ef1`*uc ]
-"49 main_lab2.c
+"53 main_lab2.c
+[; ;main_lab2.c: 53: char* lcd_ascii();
+[v _lcd_ascii `(*uc ~T0 @X0 0 e? ]
+"49
 [; ;main_lab2.c: 49: void toggle_adc(void);
 [v _toggle_adc `(v ~T0 @X0 0 ef ]
+"50
+[; ;main_lab2.c: 50: void recepcion_uart(void);
+[v _recepcion_uart `(v ~T0 @X0 0 ef ]
 "352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
@@ -87,6 +107,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14 ./adc_config.h
 [; ;./adc_config.h: 14: void adc_config(void);
 [v _adc_config `(v ~T0 @X0 0 ef ]
+"17 ./uart_config.h
+[; ;./uart_config.h: 17: void uart_config(void);
+[v _uart_config `(v ~T0 @X0 0 ef ]
 "465 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 465:     struct {
 [s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -113,17 +136,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1718
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1718: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
 [v _PIE1bits `VS62 ~T0 @X0 0 e@140 ]
-"543
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 543:     struct {
-[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S19 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
-"542
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 542: typedef union {
-[u S18 `S19 1 ]
-[n S18 . . ]
-"553
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 553: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
-[v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
 "1251
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1251:     struct {
 [s S45 :1 `uc 1 :1 `uc 1 :4 `uc 1 :2 `uc 1 ]
@@ -412,242 +424,604 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"54 main_lab2.c
-[; ;main_lab2.c: 54: unsigned char conversion1;
+"58 main_lab2.c
+[; ;main_lab2.c: 58: unsigned char conversion1;
 [v _conversion1 `uc ~T0 @X0 1 e ]
-"55
-[; ;main_lab2.c: 55: unsigned char conversion2;
+"59
+[; ;main_lab2.c: 59: unsigned char conversion2;
 [v _conversion2 `uc ~T0 @X0 1 e ]
-[v $root$_isr `(v ~T0 @X0 0 e ]
+"60
+[; ;main_lab2.c: 60: unsigned char dato_recibido;
+[v _dato_recibido `uc ~T0 @X0 1 e ]
 "61
-[; ;main_lab2.c: 61: void __attribute__((picinterrupt(("")))) isr(void)
+[; ;main_lab2.c: 61: unsigned char cuenta_uart;
+[v _cuenta_uart `uc ~T0 @X0 1 e ]
+"63
+[; ;main_lab2.c: 63: unsigned char centenas1;
+[v _centenas1 `uc ~T0 @X0 1 e ]
+"64
+[; ;main_lab2.c: 64: unsigned char decenas1;
+[v _decenas1 `uc ~T0 @X0 1 e ]
+"65
+[; ;main_lab2.c: 65: unsigned char unidades1;
+[v _unidades1 `uc ~T0 @X0 1 e ]
+"67
+[; ;main_lab2.c: 67: unsigned char centenas2;
+[v _centenas2 `uc ~T0 @X0 1 e ]
+"68
+[; ;main_lab2.c: 68: unsigned char decenas2;
+[v _decenas2 `uc ~T0 @X0 1 e ]
+"69
+[; ;main_lab2.c: 69: unsigned char unidades2;
+[v _unidades2 `uc ~T0 @X0 1 e ]
+"71
+[; ;main_lab2.c: 71: unsigned char centenas3;
+[v _centenas3 `uc ~T0 @X0 1 e ]
+"72
+[; ;main_lab2.c: 72: unsigned char decenas3;
+[v _decenas3 `uc ~T0 @X0 1 e ]
+"73
+[; ;main_lab2.c: 73: unsigned char unidades3;
+[v _unidades3 `uc ~T0 @X0 1 e ]
+"75
+[; ;main_lab2.c: 75: unsigned char suma1;
+[v _suma1 `uc ~T0 @X0 1 e ]
+"76
+[; ;main_lab2.c: 76: unsigned char suma2;
+[v _suma2 `uc ~T0 @X0 1 e ]
+"77
+[; ;main_lab2.c: 77: unsigned char suma3;
+[v _suma3 `uc ~T0 @X0 1 e ]
+[v $root$_isr `(v ~T0 @X0 0 e ]
+"82
+[; ;main_lab2.c: 82: void __attribute__((picinterrupt(("")))) isr(void)
 [v _isr `(v ~T1 @X0 1 ef ]
-"62
-[; ;main_lab2.c: 62: {
+"83
+[; ;main_lab2.c: 83: {
 {
 [e :U _isr ]
 [f ]
-"66
-[; ;main_lab2.c: 66: }
+"85
+[; ;main_lab2.c: 85:      if(PIR1bits.RCIF)
+[e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 139  ]
+"86
+[; ;main_lab2.c: 86:     {
+{
+"87
+[; ;main_lab2.c: 87:         RCREG=dato_recibido;
+[e = _RCREG _dato_recibido ]
+"88
+[; ;main_lab2.c: 88:         PIR1bits.RCIF=0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"89
+[; ;main_lab2.c: 89:     }
+}
+[e :U 139 ]
+"91
+[; ;main_lab2.c: 91: }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"71
-[; ;main_lab2.c: 71: void main(void)
+"96
+[; ;main_lab2.c: 96: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"72
-[; ;main_lab2.c: 72: {
+"97
+[; ;main_lab2.c: 97: {
 {
 [e :U _main ]
 [f ]
-"73
-[; ;main_lab2.c: 73:     setup();
+"98
+[; ;main_lab2.c: 98:     setup();
 [e ( _setup ..  ]
-"74
-[; ;main_lab2.c: 74:     lcd_init();
+"99
+[; ;main_lab2.c: 99:     lcd_init();
 [e ( _lcd_init ..  ]
-"75
-[; ;main_lab2.c: 75:  cmd(0x90);
+"100
+[; ;main_lab2.c: 100:  cmd(0x90);
 [e ( _cmd (1 -> -> 144 `i `uc ]
-"78
-[; ;main_lab2.c: 78:     while(1)
-[e :U 141 ]
-"79
-[; ;main_lab2.c: 79:     {
-{
-"81
-[; ;main_lab2.c: 81:         lcd_linea(1,1);
-[e ( _lcd_linea (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"82
-[; ;main_lab2.c: 82:         show(" sen1 sen2 sen3");
-[e ( _show (1 :s 1C ]
-"83
-[; ;main_lab2.c: 83:         lcd_linea(2,1);
-[e ( _lcd_linea (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"84
-[; ;main_lab2.c: 84:         show("ya valimos gaver");
-[e ( _show (1 :s 2C ]
-"87
-[; ;main_lab2.c: 87:         toggle_adc();
-[e ( _toggle_adc ..  ]
-"88
-[; ;main_lab2.c: 88:         PORTD=conversion1;
-[e = _PORTD _conversion1 ]
-"89
-[; ;main_lab2.c: 89:         PORTE=conversion2;
-[e = _PORTE _conversion2 ]
-"90
-[; ;main_lab2.c: 90:     }
-}
-[e :U 140 ]
-[e $U 141  ]
+"103
+[; ;main_lab2.c: 103:     while(1)
 [e :U 142 ]
-"91
-[; ;main_lab2.c: 91: }
-[e :UE 139 ]
+"104
+[; ;main_lab2.c: 104:     {
+{
+"106
+[; ;main_lab2.c: 106:         lcd_linea(1,1);
+[e ( _lcd_linea (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"107
+[; ;main_lab2.c: 107:         show(" cualquier texto ");
+[e ( _show (1 :s 1C ]
+"108
+[; ;main_lab2.c: 108:         lcd_linea(2,1);
+[e ( _lcd_linea (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"109
+[; ;main_lab2.c: 109:         show(lcd_ascii());
+[e ( _show (1 -> ( _lcd_ascii ..  `*uc ]
+"112
+[; ;main_lab2.c: 112:         toggle_adc();
+[e ( _toggle_adc ..  ]
+"113
+[; ;main_lab2.c: 113:         recepcion_uart();
+[e ( _recepcion_uart ..  ]
+"115
+[; ;main_lab2.c: 115:         PORTD=conversion1;
+[e = _PORTD _conversion1 ]
+"116
+[; ;main_lab2.c: 116:         PORTE=conversion2;
+[e = _PORTE _conversion2 ]
+"118
+[; ;main_lab2.c: 118:     }
 }
-"95
-[; ;main_lab2.c: 95: void setup(void)
+[e :U 141 ]
+[e $U 142  ]
+[e :U 143 ]
+"119
+[; ;main_lab2.c: 119: }
+[e :UE 140 ]
+}
+"123
+[; ;main_lab2.c: 123: void setup(void)
 [v _setup `(v ~T0 @X0 1 ef ]
-"96
-[; ;main_lab2.c: 96: {
+"124
+[; ;main_lab2.c: 124: {
 {
 [e :U _setup ]
 [f ]
-"98
-[; ;main_lab2.c: 98:     ANSEL=0;
+"126
+[; ;main_lab2.c: 126:     ANSEL=0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"99
-[; ;main_lab2.c: 99:     ANSELH=0;
+"127
+[; ;main_lab2.c: 127:     ANSELH=0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"100
-[; ;main_lab2.c: 100:     ANSELbits.ANS0=1;
+"128
+[; ;main_lab2.c: 128:     ANSELbits.ANS0=1;
 [e = . . _ANSELbits 0 0 -> -> 1 `i `uc ]
-"101
-[; ;main_lab2.c: 101:     ANSELbits.ANS1=1;
+"129
+[; ;main_lab2.c: 129:     ANSELbits.ANS1=1;
 [e = . . _ANSELbits 0 1 -> -> 1 `i `uc ]
-"104
-[; ;main_lab2.c: 104:     TRISB=0;
+"132
+[; ;main_lab2.c: 132:     TRISB=0;
 [e = _TRISB -> -> 0 `i `uc ]
-"105
-[; ;main_lab2.c: 105:     TRISCbits.TRISC0=0;
-[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-"106
-[; ;main_lab2.c: 106:     TRISCbits.TRISC1=0;
-[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
-"107
-[; ;main_lab2.c: 107:     TRISCbits.TRISC2=0;
-[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-"108
-[; ;main_lab2.c: 108:     TRISD=0;
-[e = _TRISD -> -> 0 `i `uc ]
-"109
-[; ;main_lab2.c: 109:     TRISE=0;
-[e = _TRISE -> -> 0 `i `uc ]
-"111
-[; ;main_lab2.c: 111:     PORTB=0;
-[e = _PORTB -> -> 0 `i `uc ]
-"112
-[; ;main_lab2.c: 112:     PORTC=0;
-[e = _PORTC -> -> 0 `i `uc ]
-"113
-[; ;main_lab2.c: 113:     PORTD=0;
-[e = _PORTD -> -> 0 `i `uc ]
-"114
-[; ;main_lab2.c: 114:     PORTE=0;
-[e = _PORTE -> -> 0 `i `uc ]
-"117
-[; ;main_lab2.c: 117:     OSCCONbits.IRCF = 0b111;
-[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-"118
-[; ;main_lab2.c: 118:     OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"130
-[; ;main_lab2.c: 130:     adc_config();
-[e ( _adc_config ..  ]
 "133
-[; ;main_lab2.c: 133:     INTCONbits.GIE=1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;main_lab2.c: 133:     TRISCbits.TRISC0=0;
+[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
 "134
-[; ;main_lab2.c: 134:     INTCONbits.T0IE=0;
-[e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
+[; ;main_lab2.c: 134:     TRISCbits.TRISC1=0;
+[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
 "135
-[; ;main_lab2.c: 135:     INTCONbits.T0IF=0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;main_lab2.c: 135:     TRISCbits.TRISC2=0;
+[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
 "136
-[; ;main_lab2.c: 136:     INTCONbits.RBIE=0;
-[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+[; ;main_lab2.c: 136:     TRISD=0;
+[e = _TRISD -> -> 0 `i `uc ]
 "137
-[; ;main_lab2.c: 137:     INTCONbits.RBIF=0;
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[; ;main_lab2.c: 137:     TRISE=0;
+[e = _TRISE -> -> 0 `i `uc ]
 "139
-[; ;main_lab2.c: 139:     PIE1bits.ADIE = 0 ;
-[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
+[; ;main_lab2.c: 139:     PORTB=0;
+[e = _PORTB -> -> 0 `i `uc ]
 "140
-[; ;main_lab2.c: 140:     PIR1bits.ADIF = 0;
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-"144
-[; ;main_lab2.c: 144:     return;
-[e $UE 143  ]
+[; ;main_lab2.c: 140:     PORTC=0;
+[e = _PORTC -> -> 0 `i `uc ]
+"141
+[; ;main_lab2.c: 141:     PORTD=0;
+[e = _PORTD -> -> 0 `i `uc ]
+"142
+[; ;main_lab2.c: 142:     PORTE=0;
+[e = _PORTE -> -> 0 `i `uc ]
 "145
-[; ;main_lab2.c: 145: }
-[e :UE 143 ]
-}
-"150
-[; ;main_lab2.c: 150: void toggle_adc(void)
-[v _toggle_adc `(v ~T0 @X0 1 ef ]
+[; ;main_lab2.c: 145:     OSCCONbits.IRCF = 0b111;
+[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
+"146
+[; ;main_lab2.c: 146:     OSCCONbits.SCS = 1;
+[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
+"149
+[; ;main_lab2.c: 149:     adc_config();
+[e ( _adc_config ..  ]
 "151
-[; ;main_lab2.c: 151: {
+[; ;main_lab2.c: 151:     uart_config();
+[e ( _uart_config ..  ]
+"154
+[; ;main_lab2.c: 154:     INTCONbits.GIE=1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"155
+[; ;main_lab2.c: 155:     INTCONbits.T0IE=0;
+[e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
+"156
+[; ;main_lab2.c: 156:     INTCONbits.T0IF=0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+"157
+[; ;main_lab2.c: 157:     INTCONbits.RBIE=0;
+[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+"158
+[; ;main_lab2.c: 158:     INTCONbits.RBIF=0;
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"160
+[; ;main_lab2.c: 160:     PIE1bits.ADIE = 0 ;
+[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
+"161
+[; ;main_lab2.c: 161:     PIR1bits.ADIF = 0;
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+"165
+[; ;main_lab2.c: 165:     return;
+[e $UE 144  ]
+"166
+[; ;main_lab2.c: 166: }
+[e :UE 144 ]
+}
+"173
+[; ;main_lab2.c: 173: void toggle_adc(void)
+[v _toggle_adc `(v ~T0 @X0 1 ef ]
+"174
+[; ;main_lab2.c: 174: {
 {
 [e :U _toggle_adc ]
 [f ]
-"152
-[; ;main_lab2.c: 152:     if (ADCON0bits.GO==0)
-[e $ ! == -> . . _ADCON0bits 1 1 `i -> 0 `i 145  ]
-"153
-[; ;main_lab2.c: 153:     {
+"175
+[; ;main_lab2.c: 175:     if (ADCON0bits.GO==0)
+[e $ ! == -> . . _ADCON0bits 1 1 `i -> 0 `i 146  ]
+"176
+[; ;main_lab2.c: 176:     {
 {
-"154
-[; ;main_lab2.c: 154:         switch(ADCON0bits.CHS)
-[e $U 147  ]
-"155
-[; ;main_lab2.c: 155:         {
+"177
+[; ;main_lab2.c: 177:         switch(ADCON0bits.CHS)
+[e $U 148  ]
+"178
+[; ;main_lab2.c: 178:         {
 {
-"156
-[; ;main_lab2.c: 156:             case(0):
-[e :U 148 ]
-"157
-[; ;main_lab2.c: 157:                 conversion1=ADRESH;
-[e = _conversion1 _ADRESH ]
-"158
-[; ;main_lab2.c: 158:                 _delay((unsigned long)((100)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"159
-[; ;main_lab2.c: 159:                 ADCON0bits.CHS=1;
-[e = . . _ADCON0bits 0 2 -> -> 1 `i `uc ]
-"160
-[; ;main_lab2.c: 160:                 break;
-[e $U 146  ]
-"162
-[; ;main_lab2.c: 162:             case(1):
+"179
+[; ;main_lab2.c: 179:             case(0):
 [e :U 149 ]
-"163
-[; ;main_lab2.c: 163:                 conversion2=ADRESH;
+"180
+[; ;main_lab2.c: 180:                 conversion1=ADRESH;
+[e = _conversion1 _ADRESH ]
+"181
+[; ;main_lab2.c: 181:                 _delay((unsigned long)((100)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"182
+[; ;main_lab2.c: 182:                 ADCON0bits.CHS=1;
+[e = . . _ADCON0bits 0 2 -> -> 1 `i `uc ]
+"183
+[; ;main_lab2.c: 183:                 break;
+[e $U 147  ]
+"185
+[; ;main_lab2.c: 185:             case(1):
+[e :U 150 ]
+"186
+[; ;main_lab2.c: 186:                 conversion2=ADRESH;
 [e = _conversion2 _ADRESH ]
-"164
-[; ;main_lab2.c: 164:                 _delay((unsigned long)((100)*(8000000/4000000.0)));
+"187
+[; ;main_lab2.c: 187:                 _delay((unsigned long)((100)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"165
-[; ;main_lab2.c: 165:                 ADCON0bits.CHS=0;
+"188
+[; ;main_lab2.c: 188:                 ADCON0bits.CHS=0;
 [e = . . _ADCON0bits 0 2 -> -> 0 `i `uc ]
-"166
-[; ;main_lab2.c: 166:                 break;
-[e $U 146  ]
-"167
-[; ;main_lab2.c: 167:             }
+"189
+[; ;main_lab2.c: 189:                 break;
+[e $U 147  ]
+"190
+[; ;main_lab2.c: 190:             }
 }
-[e $U 146  ]
+[e $U 147  ]
+[e :U 148 ]
+[e [\ -> . . _ADCON0bits 0 2 `i , $ -> 0 `i 149
+ , $ -> 1 `i 150
+ 147 ]
 [e :U 147 ]
-[e [\ -> . . _ADCON0bits 0 2 `i , $ -> 0 `i 148
- , $ -> 1 `i 149
- 146 ]
-[e :U 146 ]
-"168
-[; ;main_lab2.c: 168:             _delay((unsigned long)((100)*(8000000/4000000.0)));
+"191
+[; ;main_lab2.c: 191:             _delay((unsigned long)((100)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"169
-[; ;main_lab2.c: 169:             ADCON0bits.GO=1;
+"192
+[; ;main_lab2.c: 192:             ADCON0bits.GO=1;
 [e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
-"170
-[; ;main_lab2.c: 170:         }
+"193
+[; ;main_lab2.c: 193:         }
 }
-[e :U 145 ]
-"171
-[; ;main_lab2.c: 171:     return;
-[e $UE 144  ]
-"172
-[; ;main_lab2.c: 172: }
-[e :UE 144 ]
+[e :U 146 ]
+"194
+[; ;main_lab2.c: 194:     return;
+[e $UE 145  ]
+"195
+[; ;main_lab2.c: 195: }
+[e :UE 145 ]
 }
-[a 2C 121 97 32 118 97 108 105 109 111 115 32 103 97 118 101 114 0 ]
-[a 1C 32 115 101 110 49 32 115 101 110 50 32 115 101 110 51 0 ]
+"198
+[; ;main_lab2.c: 198: void recepcion_uart(void)
+[v _recepcion_uart `(v ~T0 @X0 1 ef ]
+"199
+[; ;main_lab2.c: 199: {
+{
+[e :U _recepcion_uart ]
+[f ]
+"200
+[; ;main_lab2.c: 200:     switch(dato_recibido)
+[e $U 153  ]
+"201
+[; ;main_lab2.c: 201:     {
+{
+"202
+[; ;main_lab2.c: 202:         case(1):
+[e :U 154 ]
+"203
+[; ;main_lab2.c: 203:             cuenta_uart++;
+[e ++ _cuenta_uart -> -> 1 `i `uc ]
+"204
+[; ;main_lab2.c: 204:             break;
+[e $U 152  ]
+"206
+[; ;main_lab2.c: 206:         case(2):
+[e :U 155 ]
+"207
+[; ;main_lab2.c: 207:             cuenta_uart--;
+[e -- _cuenta_uart -> -> 1 `i `uc ]
+"208
+[; ;main_lab2.c: 208:             break;
+[e $U 152  ]
+"210
+[; ;main_lab2.c: 210:         default:
+[e :U 156 ]
+"211
+[; ;main_lab2.c: 211:             cuenta_uart=0;
+[e = _cuenta_uart -> -> 0 `i `uc ]
+"212
+[; ;main_lab2.c: 212:             break;
+[e $U 152  ]
+"213
+[; ;main_lab2.c: 213:     }
+}
+[e $U 152  ]
+[e :U 153 ]
+[e [\ -> _dato_recibido `i , $ -> 1 `i 154
+ , $ -> 2 `i 155
+ 156 ]
+[e :U 152 ]
+"214
+[; ;main_lab2.c: 214: }
+[e :UE 151 ]
+}
+"217
+[; ;main_lab2.c: 217: char datos_ascii(uint8_t numero)
+[v _datos_ascii `(uc ~T0 @X0 1 ef1`uc ]
+"218
+[; ;main_lab2.c: 218: {
+{
+[e :U _datos_ascii ]
+"217
+[; ;main_lab2.c: 217: char datos_ascii(uint8_t numero)
+[v _numero `uc ~T0 @X0 1 r1 ]
+"218
+[; ;main_lab2.c: 218: {
+[f ]
+"219
+[; ;main_lab2.c: 219:     switch(numero)
+[e $U 159  ]
+"220
+[; ;main_lab2.c: 220:     {
+{
+"221
+[; ;main_lab2.c: 221:         default:
+[e :U 160 ]
+"222
+[; ;main_lab2.c: 222:             return 48;
+[e ) -> -> 48 `i `uc ]
+[e $UE 157  ]
+"223
+[; ;main_lab2.c: 223:             break;
+[e $U 158  ]
+"225
+[; ;main_lab2.c: 225:         case(1):
+[e :U 161 ]
+"226
+[; ;main_lab2.c: 226:             return 49;
+[e ) -> -> 49 `i `uc ]
+[e $UE 157  ]
+"227
+[; ;main_lab2.c: 227:             break;
+[e $U 158  ]
+"229
+[; ;main_lab2.c: 229:         case(2):
+[e :U 162 ]
+"230
+[; ;main_lab2.c: 230:             return 50;
+[e ) -> -> 50 `i `uc ]
+[e $UE 157  ]
+"231
+[; ;main_lab2.c: 231:             break;
+[e $U 158  ]
+"233
+[; ;main_lab2.c: 233:         case(3):
+[e :U 163 ]
+"234
+[; ;main_lab2.c: 234:             return 51;
+[e ) -> -> 51 `i `uc ]
+[e $UE 157  ]
+"235
+[; ;main_lab2.c: 235:             break;
+[e $U 158  ]
+"237
+[; ;main_lab2.c: 237:         case(4):
+[e :U 164 ]
+"238
+[; ;main_lab2.c: 238:             return 52;
+[e ) -> -> 52 `i `uc ]
+[e $UE 157  ]
+"239
+[; ;main_lab2.c: 239:             break;
+[e $U 158  ]
+"241
+[; ;main_lab2.c: 241:         case(5):
+[e :U 165 ]
+"242
+[; ;main_lab2.c: 242:             return 53;
+[e ) -> -> 53 `i `uc ]
+[e $UE 157  ]
+"243
+[; ;main_lab2.c: 243:             break;
+[e $U 158  ]
+"245
+[; ;main_lab2.c: 245:         case(6):
+[e :U 166 ]
+"246
+[; ;main_lab2.c: 246:             return 54;
+[e ) -> -> 54 `i `uc ]
+[e $UE 157  ]
+"247
+[; ;main_lab2.c: 247:             break;
+[e $U 158  ]
+"249
+[; ;main_lab2.c: 249:         case(7):
+[e :U 167 ]
+"250
+[; ;main_lab2.c: 250:             return 55;
+[e ) -> -> 55 `i `uc ]
+[e $UE 157  ]
+"251
+[; ;main_lab2.c: 251:             break;
+[e $U 158  ]
+"253
+[; ;main_lab2.c: 253:         case(8):
+[e :U 168 ]
+"254
+[; ;main_lab2.c: 254:             return 56;
+[e ) -> -> 56 `i `uc ]
+[e $UE 157  ]
+"255
+[; ;main_lab2.c: 255:             break;
+[e $U 158  ]
+"257
+[; ;main_lab2.c: 257:         case(9):
+[e :U 169 ]
+"258
+[; ;main_lab2.c: 258:             return 57;
+[e ) -> -> 57 `i `uc ]
+[e $UE 157  ]
+"259
+[; ;main_lab2.c: 259:             break;
+[e $U 158  ]
+"261
+[; ;main_lab2.c: 261:     }
+}
+[e $U 158  ]
+[e :U 159 ]
+[e [\ -> _numero `i , $ -> 1 `i 161
+ , $ -> 2 `i 162
+ , $ -> 3 `i 163
+ , $ -> 4 `i 164
+ , $ -> 5 `i 165
+ , $ -> 6 `i 166
+ , $ -> 7 `i 167
+ , $ -> 8 `i 168
+ , $ -> 9 `i 169
+ 160 ]
+[e :U 158 ]
+"262
+[; ;main_lab2.c: 262: }
+[e :UE 157 ]
+}
+"265
+[; ;main_lab2.c: 265: void conversiones()
+[v _conversiones `(v ~T0 @X0 1 ef ]
+"266
+[; ;main_lab2.c: 266: {
+{
+[e :U _conversiones ]
+[f ]
+"267
+[; ;main_lab2.c: 267:     centenas1=((conversion1/100)%10) ;
+[e = _centenas1 -> % / -> _conversion1 `i -> 100 `i -> 10 `i `uc ]
+"268
+[; ;main_lab2.c: 268:     decenas1=((conversion1/10)%10) ;
+[e = _decenas1 -> % / -> _conversion1 `i -> 10 `i -> 10 `i `uc ]
+"269
+[; ;main_lab2.c: 269:     unidades1=(conversion1%10) ;
+[e = _unidades1 -> % -> _conversion1 `i -> 10 `i `uc ]
+"271
+[; ;main_lab2.c: 271:     centenas1=((conversion2/100)%10) ;
+[e = _centenas1 -> % / -> _conversion2 `i -> 100 `i -> 10 `i `uc ]
+"272
+[; ;main_lab2.c: 272:     decenas1=((conversion2/10)%10) ;
+[e = _decenas1 -> % / -> _conversion2 `i -> 10 `i -> 10 `i `uc ]
+"273
+[; ;main_lab2.c: 273:     unidades1=(conversion2%10) ;
+[e = _unidades1 -> % -> _conversion2 `i -> 10 `i `uc ]
+"275
+[; ;main_lab2.c: 275:     centenas1=((cuenta_uart/100)%10) ;
+[e = _centenas1 -> % / -> _cuenta_uart `i -> 100 `i -> 10 `i `uc ]
+"276
+[; ;main_lab2.c: 276:     decenas1=((cuenta_uart/10)%10) ;
+[e = _decenas1 -> % / -> _cuenta_uart `i -> 10 `i -> 10 `i `uc ]
+"277
+[; ;main_lab2.c: 277:     unidades1=(cuenta_uart%10) ;
+[e = _unidades1 -> % -> _cuenta_uart `i -> 10 `i `uc ]
+"278
+[; ;main_lab2.c: 278: }
+[e :UE 170 ]
+}
+"281
+[; ;main_lab2.c: 281: char* lcd_ascii()
+[v _lcd_ascii `(*uc ~T0 @X0 1 ef ]
+"282
+[; ;main_lab2.c: 282: {
+{
+[e :U _lcd_ascii ]
+[f ]
+"283
+[; ;main_lab2.c: 283:     char random[16];
+[v _random `uc ~T0 @X0 -> 16 `i a ]
+"284
+[; ;main_lab2.c: 284:     random[0]=datos_ascii(centenas1);
+[e = *U + &U _random * -> -> -> 0 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _centenas1 ]
+"285
+[; ;main_lab2.c: 285:     random[1]=datos_ascii(decenas1);
+[e = *U + &U _random * -> -> -> 1 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _decenas1 ]
+"286
+[; ;main_lab2.c: 286:     random[2]=datos_ascii(unidades1);
+[e = *U + &U _random * -> -> -> 2 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _unidades1 ]
+"287
+[; ;main_lab2.c: 287:     random[3]=32;
+[e = *U + &U _random * -> -> -> 3 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+"288
+[; ;main_lab2.c: 288:     random[4]=32;
+[e = *U + &U _random * -> -> -> 4 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+"289
+[; ;main_lab2.c: 289:     random[5]=datos_ascii(centenas2);
+[e = *U + &U _random * -> -> -> 5 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _centenas2 ]
+"290
+[; ;main_lab2.c: 290:     random[6]=datos_ascii(decenas2);
+[e = *U + &U _random * -> -> -> 6 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _decenas2 ]
+"291
+[; ;main_lab2.c: 291:     random[7]=datos_ascii(unidades2);
+[e = *U + &U _random * -> -> -> 7 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _unidades2 ]
+"292
+[; ;main_lab2.c: 292:     random[8]=32;
+[e = *U + &U _random * -> -> -> 8 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+"293
+[; ;main_lab2.c: 293:     random[9]=32;
+[e = *U + &U _random * -> -> -> 9 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+"294
+[; ;main_lab2.c: 294:     random[10]=datos_ascii(centenas3);
+[e = *U + &U _random * -> -> -> 10 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _centenas3 ]
+"295
+[; ;main_lab2.c: 295:     random[11]=datos_ascii(decenas3);
+[e = *U + &U _random * -> -> -> 11 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _decenas3 ]
+"296
+[; ;main_lab2.c: 296:     random[12]=datos_ascii(unidades3);
+[e = *U + &U _random * -> -> -> 12 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _unidades3 ]
+"297
+[; ;main_lab2.c: 297:     random[13]=32;
+[e = *U + &U _random * -> -> -> 13 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+"298
+[; ;main_lab2.c: 298:     random[14]=32;
+[e = *U + &U _random * -> -> -> 14 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+"299
+[; ;main_lab2.c: 299:     random[15]=32;
+[e = *U + &U _random * -> -> -> 15 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+"300
+[; ;main_lab2.c: 300:     return random;
+[e ) &U _random ]
+[e $UE 171  ]
+"301
+[; ;main_lab2.c: 301: }
+[e :UE 171 ]
+}
+[a 1C 32 99 117 97 108 113 117 105 101 114 32 116 101 120 116 111 32 0 ]

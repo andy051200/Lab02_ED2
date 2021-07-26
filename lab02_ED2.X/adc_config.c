@@ -12,7 +12,7 @@
 #include <stdint.h>             //se incluye libreria
 #include <pic16f887.h>          //se incluye libreria del pic
 #include "adc_config.h"
-#define _XTAL_FREQ 4000000
+#define _XTAL_FREQ 8000000
 
 /*-----------------------------------------------------------------------------
 -------------------------- FUNCION DE LIBRERIA --------------------------------

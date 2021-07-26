@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main_lab2.c adc_config.c LCD.c
+SOURCEFILES_QUOTED_IF_SPACED=main_lab2.c adc_config.c LCD.c uart_config.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main_lab2.p1 ${OBJECTDIR}/adc_config.p1 ${OBJECTDIR}/LCD.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main_lab2.p1.d ${OBJECTDIR}/adc_config.p1.d ${OBJECTDIR}/LCD.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main_lab2.p1 ${OBJECTDIR}/adc_config.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/uart_config.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main_lab2.p1.d ${OBJECTDIR}/adc_config.p1.d ${OBJECTDIR}/LCD.p1.d ${OBJECTDIR}/uart_config.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main_lab2.p1 ${OBJECTDIR}/adc_config.p1 ${OBJECTDIR}/LCD.p1
+OBJECTFILES=${OBJECTDIR}/main_lab2.p1 ${OBJECTDIR}/adc_config.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/uart_config.p1
 
 # Source Files
-SOURCEFILES=main_lab2.c adc_config.c LCD.c
+SOURCEFILES=main_lab2.c adc_config.c LCD.c uart_config.c
 
 
 
@@ -118,6 +118,14 @@ ${OBJECTDIR}/LCD.p1: LCD.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/LCD.d ${OBJECTDIR}/LCD.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/uart_config.p1: uart_config.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/uart_config.p1.d 
+	@${RM} ${OBJECTDIR}/uart_config.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/uart_config.p1 uart_config.c 
+	@-${MV} ${OBJECTDIR}/uart_config.d ${OBJECTDIR}/uart_config.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/uart_config.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/main_lab2.p1: main_lab2.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -142,6 +150,14 @@ ${OBJECTDIR}/LCD.p1: LCD.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/LCD.p1 LCD.c 
 	@-${MV} ${OBJECTDIR}/LCD.d ${OBJECTDIR}/LCD.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/uart_config.p1: uart_config.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/uart_config.p1.d 
+	@${RM} ${OBJECTDIR}/uart_config.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/uart_config.p1 uart_config.c 
+	@-${MV} ${OBJECTDIR}/uart_config.d ${OBJECTDIR}/uart_config.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/uart_config.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

@@ -35,33 +35,58 @@ Descripcion: un laboratoria bien fumado tbh pero chilero
 #include <pic16f887.h>          //se incluye libreria del pic
 #include "adc_config.h"         //se incluye libreria del adc
 #include "LCD.h"                //se incluye libreria de LCD
+#include "uart_config.h"
 
 /*-----------------------------------------------------------------------------
  ------------------------DIRECTIVAS DE COMPILADOR------------------------------
  -----------------------------------------------------------------------------*/
 #define _XTAL_FREQ 8000000
 
-
 /*-----------------------------------------------------------------------------
  ------------------------ PROTOTIPOS DE FUNCIONES ------------------------------
  -----------------------------------------------------------------------------*/
 void setup(void);       //prototipo de funcion de configuracion
 void toggle_adc(void);  //prototipo de funcion de toggle de canales ADC
+void recepcion_uart(void);   //prototipo de funcion para recepcion uart
+char datos_ascii(uint8_t numero);
+void conversiones(void);
+char* lcd_ascii();
 
 /*-----------------------------------------------------------------------------
  ----------------------- VARIABLES A IMPLEMTENTAR------------------------------
  -----------------------------------------------------------------------------*/
 unsigned char conversion1;  //variable que almacena potenciometro 1
 unsigned char conversion2;  //variable que almacena potenciometro 2
+unsigned char dato_recibido;    //variable para sumas y restas, uart
+unsigned char cuenta_uart;  //variable para cuenta de suma y resta, uart
 
+unsigned char centenas1;
+unsigned char decenas1;
+unsigned char unidades1;
+
+unsigned char centenas2;
+unsigned char decenas2;
+unsigned char unidades2;
+
+unsigned char centenas3;
+unsigned char decenas3;
+unsigned char unidades3;
+
+unsigned char suma1;
+unsigned char suma2;
+unsigned char suma3;
 
 /*-----------------------------------------------------------------------------
  ---------------------------- INTERRUPCIONES ----------------------------------
  -----------------------------------------------------------------------------*/
 void __interrupt() isr(void) //funcion de interrupciones
 {
-    //------interrupcion 
-    
+    //------interrupcion por recepcion uart
+     if(PIR1bits.RCIF)
+    {
+        RCREG=dato_recibido;    //se almacena dato recibido en variable
+        PIR1bits.RCIF=0;
+    }
    
 }
 
@@ -79,14 +104,17 @@ void main(void)
     {
         //-------seccion para mandar texto al lcd
         lcd_linea(1,1);             //selecciono la linea 1 para escribir
-        show(" sen1 sen2 sen3");    //mensaje a enviar linea 1
+        show(" cualquier texto ");//mensaje a enviar linea 1
         lcd_linea(2,1);             //selecciono la linea 2 para escibrir
-        show("ya valimos gaver");//mensaje a enviar linea 2
+        show(lcd_ascii()); //mensaje a enviar linea 2
         
         //-------seccion para toggle de canales ADC
-        toggle_adc();               //se hace funcion para cambiar 
+        toggle_adc();               //se llama funcion para cambiar canales
+        recepcion_uart();           //se llama funcion para cuenta uart
+        
         PORTD=conversion1;
         PORTE=conversion2;
+        
     }
 }
 /*-----------------------------------------------------------------------------
@@ -117,17 +145,10 @@ void setup(void)
     OSCCONbits.IRCF = 0b111; //Fosc 8MHz
     OSCCONbits.SCS = 1;      //configuracion de reloj interno
     
-    //CONFIGURACION DEL TIMER0
-    /*OPTION_REGbits.T0CS = 0;  // bit 5  TMR0 Clock Source Select bit...0 = Internal Clock (CLKO) 1 = Transition on T0CKI pin
-    OPTION_REGbits.T0SE = 0;  // bit 4 TMR0 Source Edge Select bit 0 = low/high 1 = high/low
-    OPTION_REGbits.PSA = 0;   // bit 3  Prescaler Assignment bit...0 = Prescaler is assigned to the Timer0
-    OPTION_REGbits.PS2 = 1;   // bits 2-0  PS2:PS0: Prescaler Rate Select bits
-    OPTION_REGbits.PS1 = 1;
-    OPTION_REGbits.PS0 = 0;
-    TMR0 = 255;             // preset for timer register*/
-
     //IMPORTAR FUNCION DEL ADC DESDE LIBRERIA
-    adc_config();               //se llama funcion
+    adc_config();               //se llama funcion de la libreria
+    //IMPORTAR FUNCION DEL ADC DESDE LIBRERIA
+    uart_config();              //se llama funcion de la libreria
     
     //CONFIGURACION DE INTERRUPCIONES
     INTCONbits.GIE=1;           //se habilitan las interrupciones globales
@@ -147,6 +168,8 @@ void setup(void)
 /*-----------------------------------------------------------------------------
  --------------------------------- FUNCIONES ----------------------------------
  -----------------------------------------------------------------------------*/
+
+//--------funcion para swticheo de canales de adc
 void toggle_adc(void)
 {
     if (ADCON0bits.GO==0)
@@ -171,4 +194,108 @@ void toggle_adc(void)
     return;
 }
 
+//--------funcion para recepcion de datos via uart
+void recepcion_uart(void)
+{
+    switch(dato_recibido)
+    {
+        case(1):                //si recibe un 1 desde la pc
+            cuenta_uart++;      //se suma la variable de control
+            break;
+            
+        case(2):                //si recibe un 2 desde la pc
+            cuenta_uart--;      //se resta la variable de control
+            break;
+            
+        default:                //si no se manda nada desde la pc
+            cuenta_uart=0;      //se queda como 09 la variable control
+            break;
+    }
+}
 
+//--------funcion para conversion de valores ascii
+char datos_ascii(uint8_t numero)    //funcion para convertir a valores ascii
+{
+    switch(numero)
+    {
+        default:
+            return 48;
+            break;
+            
+        case(1):
+            return 49;
+            break;
+            
+        case(2):
+            return 50;
+            break;
+            
+        case(3):
+            return 51;
+            break;
+            
+        case(4):
+            return 52;
+            break;
+            
+        case(5):
+            return 53;
+            break;
+            
+        case(6):
+            return 54;
+            break;
+            
+        case(7):
+            return 55;
+            break;
+            
+        case(8):
+            return 56;
+            break;
+            
+        case(9):
+            return 57;
+            break;
+            
+    }
+}
+//--------funcion para conversion de valores ascii
+
+void conversiones()
+{
+    centenas1=((conversion1/100)%10) ;  // centenas de potenciometro1
+    decenas1=((conversion1/10)%10) ;    // decenas de potenciometro1
+    unidades1=(conversion1%10) ;        // unidades de portenciometro1
+    
+    centenas1=((conversion2/100)%10) ;  // centenas de potenciometro2
+    decenas1=((conversion2/10)%10) ;    // decenas de potenciometro2
+    unidades1=(conversion2%10) ;        // unidades de portenciometro2
+    
+    centenas1=((cuenta_uart/100)%10) ;  // centenas de valores uart
+    decenas1=((cuenta_uart/10)%10) ;    // decenas de valores uart
+    unidades1=(cuenta_uart%10) ;        // unidades de valores uart
+}
+
+
+char* lcd_ascii()
+{
+    char random[16];    //se usa set de 16bits
+    random[0]=datos_ascii(centenas1);   //centenas de potenciometro 1
+    random[1]=datos_ascii(decenas1);    //decenas de potenciometro 1
+    random[2]=datos_ascii(unidades1);   //unidades de potenciometro 1
+    random[3]=32;                       //se deja espacio 
+    random[4]=32;                       //se deja espacio
+    random[5]=datos_ascii(centenas2);   //centenas de potenciometro 2
+    random[6]=datos_ascii(decenas2);    //decenas de potenciometro 2
+    random[7]=datos_ascii(unidades2);   //unidades de potenciometro 2
+    random[8]=32;                       //se deja espacio
+    random[9]=32;                       //se deja espacio
+    random[10]=datos_ascii(centenas3);  //centenas de cuenta uart
+    random[11]=datos_ascii(decenas3);   //decenas de cuenta uart
+    random[12]=datos_ascii(unidades3);  //unidades de cuenta uart
+    random[13]=32;                      //se deja espacio
+    random[14]=32;                      //se deja espacio
+    random[15]=32;                      //se deja espacio
+    return random;                      //se retorna el valor para el lcd
+}

@@ -5,7 +5,7 @@
  * Created on 17 de julio de 2021, 10:43 PM
  */
 
-//#ifndef ADC_CONFIG_H
+#ifndef ADC_CONFIG_H
 #define	ADC_CONFIG_H
 
 /*-----------------------------------------------------------------------------
@@ -22,6 +22,5 @@ extern "C" {
 #ifdef	__cplusplus
 }
 #endif
-
-#endif	 ADC_CONFIG_H 
 */
+#endif	 ADC_CONFIG_H 
