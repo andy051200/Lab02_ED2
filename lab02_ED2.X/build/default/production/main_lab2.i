@@ -2693,10 +2693,16 @@ void main(void)
 
     while(1)
     {
+
         lcd_linea(1,1);
         show(" sen1 sen2 sen3");
         lcd_linea(2,1);
         show("probemos");
+
+
+        toggle_adc();
+        PORTD=conversion1;
+        PORTE=conversion2;
     }
 }
 
@@ -2715,11 +2721,18 @@ void setup(void)
     TRISCbits.TRISC0=0;
     TRISCbits.TRISC1=0;
     TRISCbits.TRISC2=0;
+    TRISD=0;
+    TRISE=0;
+
+    PORTB=0;
+    PORTC=0;
+    PORTD=0;
+    PORTE=0;
 
 
     OSCCONbits.IRCF = 0b111;
     OSCCONbits.SCS = 1;
-# 117 "main_lab2.c"
+# 130 "main_lab2.c"
     adc_config();
 
 

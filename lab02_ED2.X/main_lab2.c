@@ -77,10 +77,16 @@ void main(void)
     
     while(1)
     {
-        lcd_linea(1,1);        //selecciono la linea 1 para escribir
-        show(" sen1 sen2 sen3");           //mensaje a enviar linea 1
-        lcd_linea(2,1);        //selecciono la linea 2 para escibrir
+        //-------seccion para mandar texto al lcd
+        lcd_linea(1,1);             //selecciono la linea 1 para escribir
+        show(" sen1 sen2 sen3");    //mensaje a enviar linea 1
+        lcd_linea(2,1);             //selecciono la linea 2 para escibrir
         show("probemos");           //mensaje a enviar linea 2
+        
+        //-------seccion para toggle de canales ADC
+        toggle_adc();               //se hace funcion para cambiar 
+        PORTD=conversion1;
+        PORTE=conversion2;
     }
 }
 /*-----------------------------------------------------------------------------
@@ -99,6 +105,13 @@ void setup(void)
     TRISCbits.TRISC0=0;
     TRISCbits.TRISC1=0;
     TRISCbits.TRISC2=0; 
+    TRISD=0;
+    TRISE=0;
+    
+    PORTB=0;
+    PORTC=0;
+    PORTD=0;
+    PORTE=0;
     
     //CONFIGURACION DE RELOJ
     OSCCONbits.IRCF = 0b111; //Fosc 8MHz
