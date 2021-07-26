@@ -2697,7 +2697,7 @@ void main(void)
         lcd_linea(1,1);
         show(" sen1 sen2 sen3");
         lcd_linea(2,1);
-        show("probemos");
+        show("ya valimos gaver");
 
 
         toggle_adc();

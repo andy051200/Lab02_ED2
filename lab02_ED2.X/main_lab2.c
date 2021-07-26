@@ -81,7 +81,7 @@ void main(void)
         lcd_linea(1,1);             //selecciono la linea 1 para escribir
         show(" sen1 sen2 sen3");    //mensaje a enviar linea 1
         lcd_linea(2,1);             //selecciono la linea 2 para escibrir
-        show("probemos");           //mensaje a enviar linea 2
+        show("ya valimos gaver");//mensaje a enviar linea 2
         
         //-------seccion para toggle de canales ADC
         toggle_adc();               //se hace funcion para cambiar 
