@@ -48,9 +48,9 @@ Descripcion: un laboratoria bien fumado tbh pero chilero
 void setup(void);       //prototipo de funcion de configuracion
 void toggle_adc(void);  //prototipo de funcion de toggle de canales ADC
 void recepcion_uart(void);   //prototipo de funcion para recepcion uart
-char datos_ascii(uint8_t numero);
+unsigned char datos_ascii(uint8_t numero);
 void conversiones(void);
-char* lcd_ascii();
+uint8_t lcd_ascii();
 
 /*-----------------------------------------------------------------------------
  ----------------------- VARIABLES A IMPLEMTENTAR------------------------------
@@ -98,20 +98,32 @@ void main(void)
     setup();            //invoco la funcion de configuracion de registros
     lcd_init();         //invoco la funcion de inicializacion de la lcd
 	cmd(0x90);          //invocao la funcion de configurcion de comandos lcd
-	
+	//printf("wenas");
     
     while(1)
     {
         //-------seccion para llamr varias funciones
         toggle_adc();               //se llama funcion para cambiar canales
         recepcion_uart();           //se llama funcion para cuenta uart
-        conversiones();             //se llama funcion de conversiones
+        //conversiones();             //se llama funcion de conversiones
         //PORTD=conversion1;
-        //PORTE=conversion2;
+        PORTD=conversion1;
+        /*centenas1=((conversion1/100)%10) ;  // centenas de potenciometro1
+        decenas1=((conversion1/10)%10) ;    // decenas de potenciometro1
+        unidades1=(conversion1%10) ;        // unidades de portenciometro1
+
+        centenas1=((conversion2/100)%10) ;  // centenas de potenciometro2
+        decenas1=((conversion2/10)%10) ;    // decenas de potenciometro2
+        unidades1=(conversion2%10) ;        // unidades de portenciometro2
+
+        centenas1=((cuenta_uart/100)%10) ;  // centenas de valores uart
+        decenas1=((cuenta_uart/10)%10) ;    // decenas de valores uart
+        unidades1=(cuenta_uart%10) ;        // unidades de valores uart*/
+        
         
         //-------seccion para mandar texto al lcd
         lcd_linea(1,1);             //selecciono la linea 1 para escribir
-        show(" Sen1 Sen2 Sen3 ");//mensaje a enviar linea 1
+        show(" S1   S2   S3 ");//mensaje a enviar linea 1
         lcd_linea(2,1);             //selecciono la linea 2 para escibrir
         show(lcd_ascii()); //mensaje a enviar linea 2
         
@@ -135,6 +147,7 @@ void setup(void)
     TRISCbits.TRISC1=0;
     TRISCbits.TRISC2=0; 
     */
+    TRISC=0;
     TRISDbits.TRISD5=0;
     TRISDbits.TRISD6=0;
     TRISDbits.TRISD7=0;
@@ -152,10 +165,10 @@ void setup(void)
     //IMPORTAR FUNCION DEL ADC DESDE LIBRERIA
     adc_config();               //se llama funcion de la libreria
     //IMPORTAR FUNCION DEL ADC DESDE LIBRERIA
-    uart_config();              //se llama funcion de la libreria
+    //uart_config();              //se llama funcion de la libreria
     
     //CONFIGURACION DE INTERRUPCIONES
-    INTCONbits.GIE=1;           //se habilitan las interrupciones globales
+    INTCONbits.GIE=0;           //se habilitan las interrupciones globales
     INTCONbits.T0IE=0;          // enable bit de int timer0
     INTCONbits.T0IF=0;        //se apaga la bandera de int timer0
     INTCONbits.RBIE=0;          // se habilita IntOnChange
@@ -184,17 +197,20 @@ void toggle_adc(void)
                 conversion1=ADRESH;         //potenciometro 1
                 __delay_us(100);            //delay para cargar capacitor          
                 ADCON0bits.CHS=1;           //switch de canal
+                ADCON0bits.GO=1;                //se inicia otra conversion ADC
                 break;
                     
             case(1):
                 conversion2=ADRESH;         //potenciometro 2
                 __delay_us(100);            //delay para cargar capacitor
                 ADCON0bits.CHS=0;           //switch de canal
+                ADCON0bits.GO=1;                //se inicia otra conversion ADC
                 break;
-            }
+            
             __delay_us(100);                //delay para carga de capacitor
             ADCON0bits.GO=1;                //se inicia otra conversion ADC
         }
+    }
     return;
 }
 
@@ -218,87 +234,92 @@ void recepcion_uart(void)
 }
 
 //--------funcion para conversion de valores ascii
-char datos_ascii(uint8_t numero)    //funcion para convertir a valores ascii
+unsigned char datos_ascii(uint8_t numero)    //funcion para convertir a valores ascii
 {
     switch(numero)
     {
+        default:
+            return 0x30;        //retorna 0 en ascii
+            break;
         case(0):
-            return 48;
+            return 0x30;        //retorna 0 en ascii
             break;
             
         case(1):
-            return 49;
+            return 0x31;        //retorna 1 en ascii
             break;
             
         case(2):
-            return 50;
+            return 0x32;        //retorna 2 en ascii
             break;
             
         case(3):
-            return 51;
+            return 0x33;        //retorna 3 en ascii
             break;
             
         case(4):
-            return 52;
+            return 0x34;        //retorna 4 en ascii
             break;
             
         case(5):
-            return 53;
+            return 0x35;        //retorna 5 en ascii
             break;
             
         case(6):
-            return 54;
+            return 0x36;        //retorna 6 en ascii
             break;
             
         case(7):
-            return 55;
+            return 0x37;        //retorna 7 en ascii
             break;
             
         case(8):
-            return 56;
+            return 0x38;        //retorna 8 en ascii
             break;
             
         case(9):
-            return 57;
+            return 0x39;        //retorna 9 en ascii
             break;
             
     }
+    //return;
 }
 //--------funcion para conversion de valores ascii
 
 void conversiones()
 {
-    centenas1=((conversion1/100)%10) ;  // centenas de potenciometro1
-    decenas1=((conversion1/10)%10) ;    // decenas de potenciometro1
-    unidades1=(conversion1%10) ;        // unidades de portenciometro1
+    centenas1=(((2*conversion1)/100)%10) ;  // centenas de potenciometro1
+    decenas1=(((2*conversion1)/10)%10) ;    // decenas de potenciometro1
+    unidades1=((2*conversion1)%10) ;        // unidades de portenciometro1
     
-    centenas1=((conversion2/100)%10) ;  // centenas de potenciometro2
-    decenas1=((conversion2/10)%10) ;    // decenas de potenciometro2
-    unidades1=(conversion2%10) ;        // unidades de portenciometro2
+    centenas1=(((2*conversion2)/100)%10) ;  // centenas de potenciometro2
+    decenas1=(((2*conversion2)/10)%10) ;    // decenas de potenciometro2
+    unidades1=((2*conversion2)%10) ;        // unidades de portenciometro2
     
-    centenas1=((cuenta_uart/100)%10) ;  // centenas de valores uart
-    decenas1=((cuenta_uart/10)%10) ;    // decenas de valores uart
-    unidades1=(cuenta_uart%10) ;        // unidades de valores uart
+    centenas1=(((2*cuenta_uart)/100)%10) ;  // centenas de valores uart
+    decenas1=(((2*cuenta_uart)/10)%10) ;    // decenas de valores uart
+    unidades1=((2*cuenta_uart)%10) ;        // unidades de valores uart
+    return;
 }
 
 
-char* lcd_ascii()
+uint8_t lcd_ascii()
 {
-    char random[16];    //se usa set de 16bits
-    random[0]=datos_ascii(centenas1);   //centenas de potenciometro 1
-    random[1]=datos_ascii(decenas1);    //decenas de potenciometro 1
-    random[2]=datos_ascii(unidades1);   //unidades de potenciometro 1
-    random[3]=32;                       //se deja espacio 
-    random[4]=32;                       //se deja espacio
-    random[5]=datos_ascii(centenas2);   //centenas de potenciometro 2
-    random[6]=datos_ascii(decenas2);    //decenas de potenciometro 2
-    random[7]=datos_ascii(unidades2);   //unidades de potenciometro 2
-    random[8]=32;                       //se deja espacio
+    uint8_t random[16];                    //se usa set de 16bits
+    random[0]=datos_ascii(((2*(conversion1)/100)%10));   //centenas de potenciometro 1
+    random[1]=0x2E;                     //punto decimal
+    random[2]=datos_ascii(((2*(conversion1)/100)%10));    //decenas de potenciometro 1
+    random[3]=datos_ascii((2*conversion1)%10);   //unidades de potenciometro 1
+    random[4]=32;                       //se deja espacio 
+    random[5]=datos_ascii(((2*(conversion2)/100)%10));   //centenas de potenciometro 2
+    random[6]=0x2E;                     //punto decimal
+    random[7]=datos_ascii(((2*(conversion2)/100)%10));    //decenas de potenciometro 2
+    random[8]=datos_ascii((2*conversion2)%10);   //unidades de potenciometro 2
     random[9]=32;                       //se deja espacio
     random[10]=datos_ascii(centenas3);  //centenas de cuenta uart
-    random[11]=datos_ascii(decenas3);   //decenas de cuenta uart
-    random[12]=datos_ascii(unidades3);  //unidades de cuenta uart
-    random[13]=32;                      //se deja espacio
+    random[11]=0x2E;                    //punto decimal
+    random[12]=datos_ascii(decenas3);   //decenas de cuenta uart
+    random[13]=datos_ascii(unidades3);  //unidades de cuenta uart
     random[14]=32;                      //se deja espacio
     random[15]=32;                      //se deja espacio
     return random;                      //se retorna el valor para el lcd

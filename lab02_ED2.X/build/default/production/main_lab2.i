@@ -2669,9 +2669,9 @@ void uart_config(void);
 void setup(void);
 void toggle_adc(void);
 void recepcion_uart(void);
-char datos_ascii(uint8_t numero);
+unsigned char datos_ascii(uint8_t numero);
 void conversiones(void);
-char* lcd_ascii();
+uint8_t lcd_ascii();
 
 
 
@@ -2726,13 +2726,12 @@ void main(void)
 
         toggle_adc();
         recepcion_uart();
-        conversiones();
 
 
-
-
+        PORTD=conversion1;
+# 125 "main_lab2.c"
         lcd_linea(1,1);
-        show(" Sen1 Sen2 Sen3 ");
+        show(" S1   S2   S3 ");
         lcd_linea(2,1);
         show(lcd_ascii());
 
@@ -2756,6 +2755,7 @@ void setup(void)
 
 
 
+    TRISC=0;
     TRISDbits.TRISD5=0;
     TRISDbits.TRISD6=0;
     TRISDbits.TRISD7=0;
@@ -2773,10 +2773,10 @@ void setup(void)
 
     adc_config();
 
-    uart_config();
 
 
-    INTCONbits.GIE=1;
+
+    INTCONbits.GIE=0;
     INTCONbits.T0IE=0;
     INTCONbits.T0IF=0;
     INTCONbits.RBIE=0;
@@ -2805,17 +2805,20 @@ void toggle_adc(void)
                 conversion1=ADRESH;
                 _delay((unsigned long)((100)*(8000000/4000000.0)));
                 ADCON0bits.CHS=1;
+                ADCON0bits.GO=1;
                 break;
 
             case(1):
                 conversion2=ADRESH;
                 _delay((unsigned long)((100)*(8000000/4000000.0)));
                 ADCON0bits.CHS=0;
+                ADCON0bits.GO=1;
                 break;
-            }
+
             _delay((unsigned long)((100)*(8000000/4000000.0)));
             ADCON0bits.GO=1;
         }
+    }
     return;
 }
 
@@ -2839,87 +2842,92 @@ void recepcion_uart(void)
 }
 
 
-char datos_ascii(uint8_t numero)
+unsigned char datos_ascii(uint8_t numero)
 {
     switch(numero)
     {
+        default:
+            return 0x30;
+            break;
         case(0):
-            return 48;
+            return 0x30;
             break;
 
         case(1):
-            return 49;
+            return 0x31;
             break;
 
         case(2):
-            return 50;
+            return 0x32;
             break;
 
         case(3):
-            return 51;
+            return 0x33;
             break;
 
         case(4):
-            return 52;
+            return 0x34;
             break;
 
         case(5):
-            return 53;
+            return 0x35;
             break;
 
         case(6):
-            return 54;
+            return 0x36;
             break;
 
         case(7):
-            return 55;
+            return 0x37;
             break;
 
         case(8):
-            return 56;
+            return 0x38;
             break;
 
         case(9):
-            return 57;
+            return 0x39;
             break;
 
     }
+
 }
 
 
 void conversiones()
 {
-    centenas1=((conversion1/100)%10) ;
-    decenas1=((conversion1/10)%10) ;
-    unidades1=(conversion1%10) ;
+    centenas1=(((2*conversion1)/100)%10) ;
+    decenas1=(((2*conversion1)/10)%10) ;
+    unidades1=((2*conversion1)%10) ;
 
-    centenas1=((conversion2/100)%10) ;
-    decenas1=((conversion2/10)%10) ;
-    unidades1=(conversion2%10) ;
+    centenas1=(((2*conversion2)/100)%10) ;
+    decenas1=(((2*conversion2)/10)%10) ;
+    unidades1=((2*conversion2)%10) ;
 
-    centenas1=((cuenta_uart/100)%10) ;
-    decenas1=((cuenta_uart/10)%10) ;
-    unidades1=(cuenta_uart%10) ;
+    centenas1=(((2*cuenta_uart)/100)%10) ;
+    decenas1=(((2*cuenta_uart)/10)%10) ;
+    unidades1=((2*cuenta_uart)%10) ;
+    return;
 }
 
 
-char* lcd_ascii()
+uint8_t lcd_ascii()
 {
-    char random[16];
-    random[0]=datos_ascii(centenas1);
-    random[1]=datos_ascii(decenas1);
-    random[2]=datos_ascii(unidades1);
-    random[3]=32;
+    uint8_t random[16];
+    random[0]=datos_ascii(((2*(conversion1)/100)%10));
+    random[1]=0x2E;
+    random[2]=datos_ascii(((2*(conversion1)/100)%10));
+    random[3]=datos_ascii((2*conversion1)%10);
     random[4]=32;
-    random[5]=datos_ascii(centenas2);
-    random[6]=datos_ascii(decenas2);
-    random[7]=datos_ascii(unidades2);
-    random[8]=32;
+    random[5]=datos_ascii(((2*(conversion2)/100)%10));
+    random[6]=0x2E;
+    random[7]=datos_ascii(((2*(conversion2)/100)%10));
+    random[8]=datos_ascii((2*conversion2)%10);
     random[9]=32;
     random[10]=datos_ascii(centenas3);
-    random[11]=datos_ascii(decenas3);
-    random[12]=datos_ascii(unidades3);
-    random[13]=32;
+    random[11]=0x2E;
+    random[12]=datos_ascii(decenas3);
+    random[13]=datos_ascii(unidades3);
     random[14]=32;
     random[15]=32;
     return random;
