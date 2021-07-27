@@ -25,7 +25,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36
 [; ;./LCD.h: 36: void cmd(unsigned char a);
 [v _cmd `(v ~T0 @X0 0 ef1`uc ]
-"39
+"49 main_lab2.c
+[; ;main_lab2.c: 49: void toggle_adc(void);
+[v _toggle_adc `(v ~T0 @X0 0 ef ]
+"50
+[; ;main_lab2.c: 50: void recepcion_uart(void);
+[v _recepcion_uart `(v ~T0 @X0 0 ef ]
+"52
+[; ;main_lab2.c: 52: void conversiones(void);
+[v _conversiones `(v ~T0 @X0 0 ef ]
+"39 ./LCD.h
 [; ;./LCD.h: 39: void lcd_linea(char a, char b);
 [v _lcd_linea `(v ~T0 @X0 0 ef2`uc`uc ]
 "38
@@ -34,19 +43,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "53 main_lab2.c
 [; ;main_lab2.c: 53: char* lcd_ascii();
 [v _lcd_ascii `(*uc ~T0 @X0 0 e? ]
-"49
-[; ;main_lab2.c: 49: void toggle_adc(void);
-[v _toggle_adc `(v ~T0 @X0 0 ef ]
-"50
-[; ;main_lab2.c: 50: void recepcion_uart(void);
-[v _recepcion_uart `(v ~T0 @X0 0 ef ]
-"352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-"414
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 414: extern volatile unsigned char PORTE __attribute__((address(0x009)));
-[v _PORTE `Vuc ~T0 @X0 0 e@9 ]
-"3387
+"3387 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
 "3449
@@ -66,29 +63,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1478
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"1546
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1546:     struct {
-[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S57 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1545
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1545: typedef union {
-[u S56 `S57 1 ]
-[n S56 . . ]
-"1557
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1557: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
-[v _TRISCbits `VS56 ~T0 @X0 0 e@135 ]
-"1602
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
-[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
+"1608
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1608:     struct {
+[s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S59 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"1607
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1607: typedef union {
+[u S58 `S59 1 ]
+[n S58 . . ]
+"1619
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1619: extern volatile TRISDbits_t TRISDbits __attribute__((address(0x088)));
+[v _TRISDbits `VS58 ~T0 @X0 0 e@136 ]
 "1664
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1664: extern volatile unsigned char TRISE __attribute__((address(0x089)));
 [v _TRISE `Vuc ~T0 @X0 0 e@137 ]
 "228
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"290
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
-[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"352
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"414
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 414: extern volatile unsigned char PORTE __attribute__((address(0x009)));
+[v _PORTE `Vuc ~T0 @X0 0 e@9 ]
 "1868
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1868:     struct {
 [s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
@@ -526,29 +523,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main_lab2.c: 104:     {
 {
 "106
-[; ;main_lab2.c: 106:         lcd_linea(1,1);
-[e ( _lcd_linea (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"107
-[; ;main_lab2.c: 107:         show(" cualquier texto ");
-[e ( _show (1 :s 1C ]
-"108
-[; ;main_lab2.c: 108:         lcd_linea(2,1);
-[e ( _lcd_linea (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"109
-[; ;main_lab2.c: 109:         show(lcd_ascii());
-[e ( _show (1 -> ( _lcd_ascii ..  `*uc ]
-"112
-[; ;main_lab2.c: 112:         toggle_adc();
+[; ;main_lab2.c: 106:         toggle_adc();
 [e ( _toggle_adc ..  ]
-"113
-[; ;main_lab2.c: 113:         recepcion_uart();
+"107
+[; ;main_lab2.c: 107:         recepcion_uart();
 [e ( _recepcion_uart ..  ]
+"108
+[; ;main_lab2.c: 108:         conversiones();
+[e ( _conversiones ..  ]
+"113
+[; ;main_lab2.c: 113:         lcd_linea(1,1);
+[e ( _lcd_linea (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"114
+[; ;main_lab2.c: 114:         show(" Sen1 Sen2 Sen3 ");
+[e ( _show (1 :s 1C ]
 "115
-[; ;main_lab2.c: 115:         PORTD=conversion1;
-[e = _PORTD _conversion1 ]
+[; ;main_lab2.c: 115:         lcd_linea(2,1);
+[e ( _lcd_linea (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "116
-[; ;main_lab2.c: 116:         PORTE=conversion2;
-[e = _PORTE _conversion2 ]
+[; ;main_lab2.c: 116:         show(lcd_ascii());
+[e ( _show (1 -> ( _lcd_ascii ..  `*uc ]
 "118
 [; ;main_lab2.c: 118:     }
 }
@@ -582,125 +576,119 @@ Version 4.0 HI-TECH Software Intermediate Code
 "132
 [; ;main_lab2.c: 132:     TRISB=0;
 [e = _TRISB -> -> 0 `i `uc ]
-"133
-[; ;main_lab2.c: 133:     TRISCbits.TRISC0=0;
-[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-"134
-[; ;main_lab2.c: 134:     TRISCbits.TRISC1=0;
-[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
-"135
-[; ;main_lab2.c: 135:     TRISCbits.TRISC2=0;
-[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-"136
-[; ;main_lab2.c: 136:     TRISD=0;
-[e = _TRISD -> -> 0 `i `uc ]
-"137
-[; ;main_lab2.c: 137:     TRISE=0;
-[e = _TRISE -> -> 0 `i `uc ]
+"138
+[; ;main_lab2.c: 138:     TRISDbits.TRISD5=0;
+[e = . . _TRISDbits 0 5 -> -> 0 `i `uc ]
 "139
-[; ;main_lab2.c: 139:     PORTB=0;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;main_lab2.c: 139:     TRISDbits.TRISD6=0;
+[e = . . _TRISDbits 0 6 -> -> 0 `i `uc ]
 "140
-[; ;main_lab2.c: 140:     PORTC=0;
-[e = _PORTC -> -> 0 `i `uc ]
+[; ;main_lab2.c: 140:     TRISDbits.TRISD7=0;
+[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
 "141
-[; ;main_lab2.c: 141:     PORTD=0;
-[e = _PORTD -> -> 0 `i `uc ]
-"142
-[; ;main_lab2.c: 142:     PORTE=0;
-[e = _PORTE -> -> 0 `i `uc ]
+[; ;main_lab2.c: 141:     TRISE=0;
+[e = _TRISE -> -> 0 `i `uc ]
+"143
+[; ;main_lab2.c: 143:     PORTB=0;
+[e = _PORTB -> -> 0 `i `uc ]
 "145
-[; ;main_lab2.c: 145:     OSCCONbits.IRCF = 0b111;
-[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
+[; ;main_lab2.c: 145:     PORTD=0;
+[e = _PORTD -> -> 0 `i `uc ]
 "146
-[; ;main_lab2.c: 146:     OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
+[; ;main_lab2.c: 146:     PORTE=0;
+[e = _PORTE -> -> 0 `i `uc ]
 "149
-[; ;main_lab2.c: 149:     adc_config();
+[; ;main_lab2.c: 149:     OSCCONbits.IRCF = 0b111;
+[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
+"150
+[; ;main_lab2.c: 150:     OSCCONbits.SCS = 1;
+[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
+"153
+[; ;main_lab2.c: 153:     adc_config();
 [e ( _adc_config ..  ]
-"151
-[; ;main_lab2.c: 151:     uart_config();
-[e ( _uart_config ..  ]
-"154
-[; ;main_lab2.c: 154:     INTCONbits.GIE=1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "155
-[; ;main_lab2.c: 155:     INTCONbits.T0IE=0;
-[e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
-"156
-[; ;main_lab2.c: 156:     INTCONbits.T0IF=0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"157
-[; ;main_lab2.c: 157:     INTCONbits.RBIE=0;
-[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+[; ;main_lab2.c: 155:     uart_config();
+[e ( _uart_config ..  ]
 "158
-[; ;main_lab2.c: 158:     INTCONbits.RBIF=0;
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[; ;main_lab2.c: 158:     INTCONbits.GIE=1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"159
+[; ;main_lab2.c: 159:     INTCONbits.T0IE=0;
+[e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
 "160
-[; ;main_lab2.c: 160:     PIE1bits.ADIE = 0 ;
-[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
+[; ;main_lab2.c: 160:     INTCONbits.T0IF=0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "161
-[; ;main_lab2.c: 161:     PIR1bits.ADIF = 0;
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;main_lab2.c: 161:     INTCONbits.RBIE=0;
+[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+"162
+[; ;main_lab2.c: 162:     INTCONbits.RBIF=0;
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"164
+[; ;main_lab2.c: 164:     PIE1bits.ADIE = 0 ;
+[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
 "165
-[; ;main_lab2.c: 165:     return;
+[; ;main_lab2.c: 165:     PIR1bits.ADIF = 0;
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+"169
+[; ;main_lab2.c: 169:     return;
 [e $UE 144  ]
-"166
-[; ;main_lab2.c: 166: }
+"170
+[; ;main_lab2.c: 170: }
 [e :UE 144 ]
 }
-"173
-[; ;main_lab2.c: 173: void toggle_adc(void)
+"177
+[; ;main_lab2.c: 177: void toggle_adc(void)
 [v _toggle_adc `(v ~T0 @X0 1 ef ]
-"174
-[; ;main_lab2.c: 174: {
+"178
+[; ;main_lab2.c: 178: {
 {
 [e :U _toggle_adc ]
 [f ]
-"175
-[; ;main_lab2.c: 175:     if (ADCON0bits.GO==0)
-[e $ ! == -> . . _ADCON0bits 1 1 `i -> 0 `i 146  ]
-"176
-[; ;main_lab2.c: 176:     {
-{
-"177
-[; ;main_lab2.c: 177:         switch(ADCON0bits.CHS)
-[e $U 148  ]
-"178
-[; ;main_lab2.c: 178:         {
-{
 "179
-[; ;main_lab2.c: 179:             case(0):
-[e :U 149 ]
+[; ;main_lab2.c: 179:     if (ADCON0bits.GO==0)
+[e $ ! == -> . . _ADCON0bits 1 1 `i -> 0 `i 146  ]
 "180
-[; ;main_lab2.c: 180:                 conversion1=ADRESH;
-[e = _conversion1 _ADRESH ]
+[; ;main_lab2.c: 180:     {
+{
 "181
-[; ;main_lab2.c: 181:                 _delay((unsigned long)((100)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;main_lab2.c: 181:         switch(ADCON0bits.CHS)
+[e $U 148  ]
 "182
-[; ;main_lab2.c: 182:                 ADCON0bits.CHS=1;
-[e = . . _ADCON0bits 0 2 -> -> 1 `i `uc ]
+[; ;main_lab2.c: 182:         {
+{
 "183
-[; ;main_lab2.c: 183:                 break;
-[e $U 147  ]
+[; ;main_lab2.c: 183:             case(0):
+[e :U 149 ]
+"184
+[; ;main_lab2.c: 184:                 conversion1=ADRESH;
+[e = _conversion1 _ADRESH ]
 "185
-[; ;main_lab2.c: 185:             case(1):
-[e :U 150 ]
-"186
-[; ;main_lab2.c: 186:                 conversion2=ADRESH;
-[e = _conversion2 _ADRESH ]
-"187
-[; ;main_lab2.c: 187:                 _delay((unsigned long)((100)*(8000000/4000000.0)));
+[; ;main_lab2.c: 185:                 _delay((unsigned long)((100)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"188
-[; ;main_lab2.c: 188:                 ADCON0bits.CHS=0;
-[e = . . _ADCON0bits 0 2 -> -> 0 `i `uc ]
-"189
-[; ;main_lab2.c: 189:                 break;
+"186
+[; ;main_lab2.c: 186:                 ADCON0bits.CHS=1;
+[e = . . _ADCON0bits 0 2 -> -> 1 `i `uc ]
+"187
+[; ;main_lab2.c: 187:                 break;
 [e $U 147  ]
+"189
+[; ;main_lab2.c: 189:             case(1):
+[e :U 150 ]
 "190
-[; ;main_lab2.c: 190:             }
+[; ;main_lab2.c: 190:                 conversion2=ADRESH;
+[e = _conversion2 _ADRESH ]
+"191
+[; ;main_lab2.c: 191:                 _delay((unsigned long)((100)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"192
+[; ;main_lab2.c: 192:                 ADCON0bits.CHS=0;
+[e = . . _ADCON0bits 0 2 -> -> 0 `i `uc ]
+"193
+[; ;main_lab2.c: 193:                 break;
+[e $U 147  ]
+"194
+[; ;main_lab2.c: 194:             }
 }
 [e $U 147  ]
 [e :U 148 ]
@@ -708,66 +696,66 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 1 `i 150
  147 ]
 [e :U 147 ]
-"191
-[; ;main_lab2.c: 191:             _delay((unsigned long)((100)*(8000000/4000000.0)));
+"195
+[; ;main_lab2.c: 195:             _delay((unsigned long)((100)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"192
-[; ;main_lab2.c: 192:             ADCON0bits.GO=1;
+"196
+[; ;main_lab2.c: 196:             ADCON0bits.GO=1;
 [e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
-"193
-[; ;main_lab2.c: 193:         }
+"197
+[; ;main_lab2.c: 197:         }
 }
 [e :U 146 ]
-"194
-[; ;main_lab2.c: 194:     return;
+"198
+[; ;main_lab2.c: 198:     return;
 [e $UE 145  ]
-"195
-[; ;main_lab2.c: 195: }
+"199
+[; ;main_lab2.c: 199: }
 [e :UE 145 ]
 }
-"198
-[; ;main_lab2.c: 198: void recepcion_uart(void)
+"202
+[; ;main_lab2.c: 202: void recepcion_uart(void)
 [v _recepcion_uart `(v ~T0 @X0 1 ef ]
-"199
-[; ;main_lab2.c: 199: {
+"203
+[; ;main_lab2.c: 203: {
 {
 [e :U _recepcion_uart ]
 [f ]
-"200
-[; ;main_lab2.c: 200:     switch(dato_recibido)
-[e $U 153  ]
-"201
-[; ;main_lab2.c: 201:     {
-{
-"202
-[; ;main_lab2.c: 202:         case(1):
-[e :U 154 ]
-"203
-[; ;main_lab2.c: 203:             cuenta_uart++;
-[e ++ _cuenta_uart -> -> 1 `i `uc ]
 "204
-[; ;main_lab2.c: 204:             break;
-[e $U 152  ]
+[; ;main_lab2.c: 204:     switch(dato_recibido)
+[e $U 153  ]
+"205
+[; ;main_lab2.c: 205:     {
+{
 "206
-[; ;main_lab2.c: 206:         case(2):
-[e :U 155 ]
+[; ;main_lab2.c: 206:         case(1):
+[e :U 154 ]
 "207
-[; ;main_lab2.c: 207:             cuenta_uart--;
-[e -- _cuenta_uart -> -> 1 `i `uc ]
+[; ;main_lab2.c: 207:             cuenta_uart++;
+[e ++ _cuenta_uart -> -> 1 `i `uc ]
 "208
 [; ;main_lab2.c: 208:             break;
 [e $U 152  ]
 "210
-[; ;main_lab2.c: 210:         default:
-[e :U 156 ]
+[; ;main_lab2.c: 210:         case(2):
+[e :U 155 ]
 "211
-[; ;main_lab2.c: 211:             cuenta_uart=0;
-[e = _cuenta_uart -> -> 0 `i `uc ]
+[; ;main_lab2.c: 211:             cuenta_uart--;
+[e -- _cuenta_uart -> -> 1 `i `uc ]
 "212
 [; ;main_lab2.c: 212:             break;
 [e $U 152  ]
-"213
-[; ;main_lab2.c: 213:     }
+"214
+[; ;main_lab2.c: 214:         default:
+[e :U 156 ]
+"215
+[; ;main_lab2.c: 215:             cuenta_uart=0;
+[e = _cuenta_uart -> -> 0 `i `uc ]
+"216
+[; ;main_lab2.c: 216:             break;
+[e $U 152  ]
+"217
+[; ;main_lab2.c: 217:     }
 }
 [e $U 152  ]
 [e :U 153 ]
@@ -775,135 +763,136 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 2 `i 155
  156 ]
 [e :U 152 ]
-"214
-[; ;main_lab2.c: 214: }
+"218
+[; ;main_lab2.c: 218: }
 [e :UE 151 ]
 }
-"217
-[; ;main_lab2.c: 217: char datos_ascii(uint8_t numero)
+"221
+[; ;main_lab2.c: 221: char datos_ascii(uint8_t numero)
 [v _datos_ascii `(uc ~T0 @X0 1 ef1`uc ]
-"218
-[; ;main_lab2.c: 218: {
+"222
+[; ;main_lab2.c: 222: {
 {
 [e :U _datos_ascii ]
-"217
-[; ;main_lab2.c: 217: char datos_ascii(uint8_t numero)
-[v _numero `uc ~T0 @X0 1 r1 ]
-"218
-[; ;main_lab2.c: 218: {
-[f ]
-"219
-[; ;main_lab2.c: 219:     switch(numero)
-[e $U 159  ]
-"220
-[; ;main_lab2.c: 220:     {
-{
 "221
-[; ;main_lab2.c: 221:         default:
-[e :U 160 ]
+[; ;main_lab2.c: 221: char datos_ascii(uint8_t numero)
+[v _numero `uc ~T0 @X0 1 r1 ]
 "222
-[; ;main_lab2.c: 222:             return 48;
-[e ) -> -> 48 `i `uc ]
-[e $UE 157  ]
+[; ;main_lab2.c: 222: {
+[f ]
 "223
-[; ;main_lab2.c: 223:             break;
-[e $U 158  ]
+[; ;main_lab2.c: 223:     switch(numero)
+[e $U 159  ]
+"224
+[; ;main_lab2.c: 224:     {
+{
 "225
-[; ;main_lab2.c: 225:         case(1):
-[e :U 161 ]
+[; ;main_lab2.c: 225:         case(0):
+[e :U 160 ]
 "226
-[; ;main_lab2.c: 226:             return 49;
-[e ) -> -> 49 `i `uc ]
+[; ;main_lab2.c: 226:             return 48;
+[e ) -> -> 48 `i `uc ]
 [e $UE 157  ]
 "227
 [; ;main_lab2.c: 227:             break;
 [e $U 158  ]
 "229
-[; ;main_lab2.c: 229:         case(2):
-[e :U 162 ]
+[; ;main_lab2.c: 229:         case(1):
+[e :U 161 ]
 "230
-[; ;main_lab2.c: 230:             return 50;
-[e ) -> -> 50 `i `uc ]
+[; ;main_lab2.c: 230:             return 49;
+[e ) -> -> 49 `i `uc ]
 [e $UE 157  ]
 "231
 [; ;main_lab2.c: 231:             break;
 [e $U 158  ]
 "233
-[; ;main_lab2.c: 233:         case(3):
-[e :U 163 ]
+[; ;main_lab2.c: 233:         case(2):
+[e :U 162 ]
 "234
-[; ;main_lab2.c: 234:             return 51;
-[e ) -> -> 51 `i `uc ]
+[; ;main_lab2.c: 234:             return 50;
+[e ) -> -> 50 `i `uc ]
 [e $UE 157  ]
 "235
 [; ;main_lab2.c: 235:             break;
 [e $U 158  ]
 "237
-[; ;main_lab2.c: 237:         case(4):
-[e :U 164 ]
+[; ;main_lab2.c: 237:         case(3):
+[e :U 163 ]
 "238
-[; ;main_lab2.c: 238:             return 52;
-[e ) -> -> 52 `i `uc ]
+[; ;main_lab2.c: 238:             return 51;
+[e ) -> -> 51 `i `uc ]
 [e $UE 157  ]
 "239
 [; ;main_lab2.c: 239:             break;
 [e $U 158  ]
 "241
-[; ;main_lab2.c: 241:         case(5):
-[e :U 165 ]
+[; ;main_lab2.c: 241:         case(4):
+[e :U 164 ]
 "242
-[; ;main_lab2.c: 242:             return 53;
-[e ) -> -> 53 `i `uc ]
+[; ;main_lab2.c: 242:             return 52;
+[e ) -> -> 52 `i `uc ]
 [e $UE 157  ]
 "243
 [; ;main_lab2.c: 243:             break;
 [e $U 158  ]
 "245
-[; ;main_lab2.c: 245:         case(6):
-[e :U 166 ]
+[; ;main_lab2.c: 245:         case(5):
+[e :U 165 ]
 "246
-[; ;main_lab2.c: 246:             return 54;
-[e ) -> -> 54 `i `uc ]
+[; ;main_lab2.c: 246:             return 53;
+[e ) -> -> 53 `i `uc ]
 [e $UE 157  ]
 "247
 [; ;main_lab2.c: 247:             break;
 [e $U 158  ]
 "249
-[; ;main_lab2.c: 249:         case(7):
-[e :U 167 ]
+[; ;main_lab2.c: 249:         case(6):
+[e :U 166 ]
 "250
-[; ;main_lab2.c: 250:             return 55;
-[e ) -> -> 55 `i `uc ]
+[; ;main_lab2.c: 250:             return 54;
+[e ) -> -> 54 `i `uc ]
 [e $UE 157  ]
 "251
 [; ;main_lab2.c: 251:             break;
 [e $U 158  ]
 "253
-[; ;main_lab2.c: 253:         case(8):
-[e :U 168 ]
+[; ;main_lab2.c: 253:         case(7):
+[e :U 167 ]
 "254
-[; ;main_lab2.c: 254:             return 56;
-[e ) -> -> 56 `i `uc ]
+[; ;main_lab2.c: 254:             return 55;
+[e ) -> -> 55 `i `uc ]
 [e $UE 157  ]
 "255
 [; ;main_lab2.c: 255:             break;
 [e $U 158  ]
 "257
-[; ;main_lab2.c: 257:         case(9):
-[e :U 169 ]
+[; ;main_lab2.c: 257:         case(8):
+[e :U 168 ]
 "258
-[; ;main_lab2.c: 258:             return 57;
-[e ) -> -> 57 `i `uc ]
+[; ;main_lab2.c: 258:             return 56;
+[e ) -> -> 56 `i `uc ]
 [e $UE 157  ]
 "259
 [; ;main_lab2.c: 259:             break;
 [e $U 158  ]
 "261
-[; ;main_lab2.c: 261:     }
+[; ;main_lab2.c: 261:         case(9):
+[e :U 169 ]
+"262
+[; ;main_lab2.c: 262:             return 57;
+[e ) -> -> 57 `i `uc ]
+[e $UE 157  ]
+"263
+[; ;main_lab2.c: 263:             break;
+[e $U 158  ]
+"265
+[; ;main_lab2.c: 265:     }
 }
 [e $U 158  ]
 [e :U 159 ]
-[e [\ -> _numero `i , $ -> 1 `i 161
+[e [\ -> _numero `i , $ -> 0 `i 160
+ , $ -> 1 `i 161
  , $ -> 2 `i 162
  , $ -> 3 `i 163
  , $ -> 4 `i 164
@@ -912,116 +901,116 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 7 `i 167
  , $ -> 8 `i 168
  , $ -> 9 `i 169
- 160 ]
+ 158 ]
 [e :U 158 ]
-"262
-[; ;main_lab2.c: 262: }
+"266
+[; ;main_lab2.c: 266: }
 [e :UE 157 ]
 }
-"265
-[; ;main_lab2.c: 265: void conversiones()
+"269
+[; ;main_lab2.c: 269: void conversiones()
 [v _conversiones `(v ~T0 @X0 1 ef ]
-"266
-[; ;main_lab2.c: 266: {
+"270
+[; ;main_lab2.c: 270: {
 {
 [e :U _conversiones ]
 [f ]
-"267
-[; ;main_lab2.c: 267:     centenas1=((conversion1/100)%10) ;
-[e = _centenas1 -> % / -> _conversion1 `i -> 100 `i -> 10 `i `uc ]
-"268
-[; ;main_lab2.c: 268:     decenas1=((conversion1/10)%10) ;
-[e = _decenas1 -> % / -> _conversion1 `i -> 10 `i -> 10 `i `uc ]
-"269
-[; ;main_lab2.c: 269:     unidades1=(conversion1%10) ;
-[e = _unidades1 -> % -> _conversion1 `i -> 10 `i `uc ]
 "271
-[; ;main_lab2.c: 271:     centenas1=((conversion2/100)%10) ;
-[e = _centenas1 -> % / -> _conversion2 `i -> 100 `i -> 10 `i `uc ]
+[; ;main_lab2.c: 271:     centenas1=((conversion1/100)%10) ;
+[e = _centenas1 -> % / -> _conversion1 `i -> 100 `i -> 10 `i `uc ]
 "272
-[; ;main_lab2.c: 272:     decenas1=((conversion2/10)%10) ;
-[e = _decenas1 -> % / -> _conversion2 `i -> 10 `i -> 10 `i `uc ]
+[; ;main_lab2.c: 272:     decenas1=((conversion1/10)%10) ;
+[e = _decenas1 -> % / -> _conversion1 `i -> 10 `i -> 10 `i `uc ]
 "273
-[; ;main_lab2.c: 273:     unidades1=(conversion2%10) ;
-[e = _unidades1 -> % -> _conversion2 `i -> 10 `i `uc ]
+[; ;main_lab2.c: 273:     unidades1=(conversion1%10) ;
+[e = _unidades1 -> % -> _conversion1 `i -> 10 `i `uc ]
 "275
-[; ;main_lab2.c: 275:     centenas1=((cuenta_uart/100)%10) ;
-[e = _centenas1 -> % / -> _cuenta_uart `i -> 100 `i -> 10 `i `uc ]
+[; ;main_lab2.c: 275:     centenas1=((conversion2/100)%10) ;
+[e = _centenas1 -> % / -> _conversion2 `i -> 100 `i -> 10 `i `uc ]
 "276
-[; ;main_lab2.c: 276:     decenas1=((cuenta_uart/10)%10) ;
-[e = _decenas1 -> % / -> _cuenta_uart `i -> 10 `i -> 10 `i `uc ]
+[; ;main_lab2.c: 276:     decenas1=((conversion2/10)%10) ;
+[e = _decenas1 -> % / -> _conversion2 `i -> 10 `i -> 10 `i `uc ]
 "277
-[; ;main_lab2.c: 277:     unidades1=(cuenta_uart%10) ;
+[; ;main_lab2.c: 277:     unidades1=(conversion2%10) ;
+[e = _unidades1 -> % -> _conversion2 `i -> 10 `i `uc ]
+"279
+[; ;main_lab2.c: 279:     centenas1=((cuenta_uart/100)%10) ;
+[e = _centenas1 -> % / -> _cuenta_uart `i -> 100 `i -> 10 `i `uc ]
+"280
+[; ;main_lab2.c: 280:     decenas1=((cuenta_uart/10)%10) ;
+[e = _decenas1 -> % / -> _cuenta_uart `i -> 10 `i -> 10 `i `uc ]
+"281
+[; ;main_lab2.c: 281:     unidades1=(cuenta_uart%10) ;
 [e = _unidades1 -> % -> _cuenta_uart `i -> 10 `i `uc ]
-"278
-[; ;main_lab2.c: 278: }
+"282
+[; ;main_lab2.c: 282: }
 [e :UE 170 ]
 }
-"281
-[; ;main_lab2.c: 281: char* lcd_ascii()
+"285
+[; ;main_lab2.c: 285: char* lcd_ascii()
 [v _lcd_ascii `(*uc ~T0 @X0 1 ef ]
-"282
-[; ;main_lab2.c: 282: {
+"286
+[; ;main_lab2.c: 286: {
 {
 [e :U _lcd_ascii ]
 [f ]
-"283
-[; ;main_lab2.c: 283:     char random[16];
-[v _random `uc ~T0 @X0 -> 16 `i a ]
-"284
-[; ;main_lab2.c: 284:     random[0]=datos_ascii(centenas1);
-[e = *U + &U _random * -> -> -> 0 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _centenas1 ]
-"285
-[; ;main_lab2.c: 285:     random[1]=datos_ascii(decenas1);
-[e = *U + &U _random * -> -> -> 1 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _decenas1 ]
-"286
-[; ;main_lab2.c: 286:     random[2]=datos_ascii(unidades1);
-[e = *U + &U _random * -> -> -> 2 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _unidades1 ]
 "287
-[; ;main_lab2.c: 287:     random[3]=32;
-[e = *U + &U _random * -> -> -> 3 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+[; ;main_lab2.c: 287:     char random[16];
+[v _random `uc ~T0 @X0 -> 16 `i a ]
 "288
-[; ;main_lab2.c: 288:     random[4]=32;
-[e = *U + &U _random * -> -> -> 4 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+[; ;main_lab2.c: 288:     random[0]=datos_ascii(centenas1);
+[e = *U + &U _random * -> -> -> 0 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _centenas1 ]
 "289
-[; ;main_lab2.c: 289:     random[5]=datos_ascii(centenas2);
-[e = *U + &U _random * -> -> -> 5 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _centenas2 ]
+[; ;main_lab2.c: 289:     random[1]=datos_ascii(decenas1);
+[e = *U + &U _random * -> -> -> 1 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _decenas1 ]
 "290
-[; ;main_lab2.c: 290:     random[6]=datos_ascii(decenas2);
-[e = *U + &U _random * -> -> -> 6 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _decenas2 ]
+[; ;main_lab2.c: 290:     random[2]=datos_ascii(unidades1);
+[e = *U + &U _random * -> -> -> 2 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _unidades1 ]
 "291
-[; ;main_lab2.c: 291:     random[7]=datos_ascii(unidades2);
-[e = *U + &U _random * -> -> -> 7 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _unidades2 ]
+[; ;main_lab2.c: 291:     random[3]=32;
+[e = *U + &U _random * -> -> -> 3 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
 "292
-[; ;main_lab2.c: 292:     random[8]=32;
-[e = *U + &U _random * -> -> -> 8 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+[; ;main_lab2.c: 292:     random[4]=32;
+[e = *U + &U _random * -> -> -> 4 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
 "293
-[; ;main_lab2.c: 293:     random[9]=32;
-[e = *U + &U _random * -> -> -> 9 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+[; ;main_lab2.c: 293:     random[5]=datos_ascii(centenas2);
+[e = *U + &U _random * -> -> -> 5 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _centenas2 ]
 "294
-[; ;main_lab2.c: 294:     random[10]=datos_ascii(centenas3);
-[e = *U + &U _random * -> -> -> 10 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _centenas3 ]
+[; ;main_lab2.c: 294:     random[6]=datos_ascii(decenas2);
+[e = *U + &U _random * -> -> -> 6 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _decenas2 ]
 "295
-[; ;main_lab2.c: 295:     random[11]=datos_ascii(decenas3);
-[e = *U + &U _random * -> -> -> 11 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _decenas3 ]
+[; ;main_lab2.c: 295:     random[7]=datos_ascii(unidades2);
+[e = *U + &U _random * -> -> -> 7 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _unidades2 ]
 "296
-[; ;main_lab2.c: 296:     random[12]=datos_ascii(unidades3);
-[e = *U + &U _random * -> -> -> 12 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _unidades3 ]
+[; ;main_lab2.c: 296:     random[8]=32;
+[e = *U + &U _random * -> -> -> 8 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
 "297
-[; ;main_lab2.c: 297:     random[13]=32;
-[e = *U + &U _random * -> -> -> 13 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+[; ;main_lab2.c: 297:     random[9]=32;
+[e = *U + &U _random * -> -> -> 9 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
 "298
-[; ;main_lab2.c: 298:     random[14]=32;
-[e = *U + &U _random * -> -> -> 14 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+[; ;main_lab2.c: 298:     random[10]=datos_ascii(centenas3);
+[e = *U + &U _random * -> -> -> 10 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _centenas3 ]
 "299
-[; ;main_lab2.c: 299:     random[15]=32;
-[e = *U + &U _random * -> -> -> 15 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+[; ;main_lab2.c: 299:     random[11]=datos_ascii(decenas3);
+[e = *U + &U _random * -> -> -> 11 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _decenas3 ]
 "300
-[; ;main_lab2.c: 300:     return random;
+[; ;main_lab2.c: 300:     random[12]=datos_ascii(unidades3);
+[e = *U + &U _random * -> -> -> 12 `i `ui `ux -> -> # *U &U _random `ui `ux ( _datos_ascii (1 _unidades3 ]
+"301
+[; ;main_lab2.c: 301:     random[13]=32;
+[e = *U + &U _random * -> -> -> 13 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+"302
+[; ;main_lab2.c: 302:     random[14]=32;
+[e = *U + &U _random * -> -> -> 14 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+"303
+[; ;main_lab2.c: 303:     random[15]=32;
+[e = *U + &U _random * -> -> -> 15 `i `ui `ux -> -> # *U &U _random `ui `ux -> -> 32 `i `uc ]
+"304
+[; ;main_lab2.c: 304:     return random;
 [e ) &U _random ]
 [e $UE 171  ]
-"301
-[; ;main_lab2.c: 301: }
+"305
+[; ;main_lab2.c: 305: }
 [e :UE 171 ]
 }
-[a 1C 32 99 117 97 108 113 117 105 101 114 32 116 101 120 116 111 32 0 ]
+[a 1C 32 83 101 110 49 32 83 101 110 50 32 83 101 110 51 32 0 ]

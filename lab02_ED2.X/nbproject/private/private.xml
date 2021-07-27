@@ -5,9 +5,11 @@
         <group>
             <file>file:/C:/Users/Andy%20Bonilla/Documents/GitHub/ED2/Lab02_ED2/lab02_ED2.X/LCD.c</file>
             <file>file:/C:/Users/Andy%20Bonilla/Documents/GitHub/ED2/Lab02_ED2/lab02_ED2.X/adc_config.h</file>
+            <file>file:/C:/Users/Andy%20Bonilla/Documents/GitHub/ED2/Lab02_ED2/lab02_ED2.X/uart_config.h</file>
             <file>file:/C:/Users/Andy%20Bonilla/Documents/GitHub/ED2/Lab02_ED2/lab02_ED2.X/adc_config.c</file>
             <file>file:/C:/Users/Andy%20Bonilla/Documents/GitHub/ED2/Lab02_ED2/lab02_ED2.X/main_lab2.c</file>
             <file>file:/C:/Users/Andy%20Bonilla/Documents/GitHub/ED2/Lab02_ED2/lab02_ED2.X/LCD.h</file>
+            <file>file:/C:/Users/Andy%20Bonilla/Documents/GitHub/ED2/Lab02_ED2/lab02_ED2.X/uart_config.c</file>
         </group>
     </open-files>
 </project-private>

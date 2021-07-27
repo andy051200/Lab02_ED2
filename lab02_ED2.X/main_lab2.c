@@ -102,18 +102,18 @@ void main(void)
     
     while(1)
     {
-        //-------seccion para mandar texto al lcd
-        lcd_linea(1,1);             //selecciono la linea 1 para escribir
-        show(" cualquier texto ");//mensaje a enviar linea 1
-        lcd_linea(2,1);             //selecciono la linea 2 para escibrir
-        show(lcd_ascii()); //mensaje a enviar linea 2
-        
-        //-------seccion para toggle de canales ADC
+        //-------seccion para llamr varias funciones
         toggle_adc();               //se llama funcion para cambiar canales
         recepcion_uart();           //se llama funcion para cuenta uart
+        conversiones();             //se llama funcion de conversiones
+        //PORTD=conversion1;
+        //PORTE=conversion2;
         
-        PORTD=conversion1;
-        PORTE=conversion2;
+        //-------seccion para mandar texto al lcd
+        lcd_linea(1,1);             //selecciono la linea 1 para escribir
+        show(" Sen1 Sen2 Sen3 ");//mensaje a enviar linea 1
+        lcd_linea(2,1);             //selecciono la linea 2 para escibrir
+        show(lcd_ascii()); //mensaje a enviar linea 2
         
     }
 }
@@ -130,14 +130,18 @@ void setup(void)
     
     //CONFIGURACION DE IN-OUT DE PUERTOS
     TRISB=0;
-    TRISCbits.TRISC0=0;
+    //TRISC=0;
+    /*TRISCbits.TRISC0=0;
     TRISCbits.TRISC1=0;
     TRISCbits.TRISC2=0; 
-    TRISD=0;
+    */
+    TRISDbits.TRISD5=0;
+    TRISDbits.TRISD6=0;
+    TRISDbits.TRISD7=0;
     TRISE=0;
     
     PORTB=0;
-    PORTC=0;
+    //PORTC=0;
     PORTD=0;
     PORTE=0;
     
@@ -218,7 +222,7 @@ char datos_ascii(uint8_t numero)    //funcion para convertir a valores ascii
 {
     switch(numero)
     {
-        default:
+        case(0):
             return 48;
             break;
             

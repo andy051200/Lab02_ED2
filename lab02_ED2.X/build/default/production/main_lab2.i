@@ -2724,17 +2724,17 @@ void main(void)
     while(1)
     {
 
-        lcd_linea(1,1);
-        show(" cualquier texto ");
-        lcd_linea(2,1);
-        show(lcd_ascii());
-
-
         toggle_adc();
         recepcion_uart();
+        conversiones();
 
-        PORTD=conversion1;
-        PORTE=conversion2;
+
+
+
+        lcd_linea(1,1);
+        show(" Sen1 Sen2 Sen3 ");
+        lcd_linea(2,1);
+        show(lcd_ascii());
 
     }
 }
@@ -2751,14 +2751,18 @@ void setup(void)
 
 
     TRISB=0;
-    TRISCbits.TRISC0=0;
-    TRISCbits.TRISC1=0;
-    TRISCbits.TRISC2=0;
-    TRISD=0;
+
+
+
+
+
+    TRISDbits.TRISD5=0;
+    TRISDbits.TRISD6=0;
+    TRISDbits.TRISD7=0;
     TRISE=0;
 
     PORTB=0;
-    PORTC=0;
+
     PORTD=0;
     PORTE=0;
 
@@ -2839,7 +2843,7 @@ char datos_ascii(uint8_t numero)
 {
     switch(numero)
     {
-        default:
+        case(0):
             return 48;
             break;
 

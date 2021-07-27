@@ -16,15 +16,15 @@
 #endif
 
 #ifndef rs
-#define rs RC0
+#define rs RD5
 #endif
 
 #ifndef rw
-#define rw RC1
+#define rw RD6
 #endif
 
 #ifndef en
-#define en PORTCbits.RC2
+#define en RD7
 #endif
 
 #include <xc.h> // include processor files - each processor file is guarded.  

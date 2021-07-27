@@ -2523,22 +2523,22 @@ void lcd_init()
 void cmd(unsigned char a)
 {
  PORTB=a;
- RC0=0;
- RC1=0;
- PORTCbits.RC2=1;
+ RD5=0;
+ RD6=0;
+ RD7=1;
     _delay((unsigned long)((1)*(8000000/4000.0)));
- PORTCbits.RC2=0;
+ RD7=0;
 }
 
 
 void dat(unsigned char b)
 {
  PORTB=b;
- RC0=1;
- RC1=0;
- PORTCbits.RC2=1;
+ RD5=1;
+ RD6=0;
+ RD7=1;
  _delay((unsigned long)((1)*(8000000/4000.0)));
- PORTCbits.RC2=0;
+ RD7=0;
 }
 
 
