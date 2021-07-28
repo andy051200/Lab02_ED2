@@ -186,11 +186,11 @@ void recepcion_uart(void)
 {
     switch(dato_recibido)        //se analiza el dato mandado por la pc
     {
-        case(1):                //si recibe un 1 desde la pc
+        case('1'):                //si recibe un 1 desde la pc
             cuenta_uart++;      //se suma la variable de control
             break;
             
-        case(2):                //si recibe un 2 desde la pc
+        case('2'):                //si recibe un 2 desde la pc
             cuenta_uart--;      //se resta la variable de control
             break;
             
@@ -282,7 +282,7 @@ uint8_t lcd_ascii()
     random[7]=datos_ascii(((2*(conversion2)/100)%10));    //decenas de potenciometro 2
     random[8]=datos_ascii((2*conversion2)%10);   //unidades de potenciometro 2
     random[9]=32;                       //se deja espacio
-    random[10]=datos_ascii(RCREG);  //centenas de cuenta uart
+    random[10]=datos_ascii(cuenta_uart);  //centenas de cuenta uart
     random[11]=0x2E;                    //punto decimal
     random[12]=32;//datos_ascii(decenas3);   //decenas de cuenta uart
     random[13]=32;//datos_ascii(unidades3);  //unidades de cuenta uart

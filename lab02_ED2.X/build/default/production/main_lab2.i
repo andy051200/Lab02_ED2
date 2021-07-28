@@ -2799,11 +2799,11 @@ void recepcion_uart(void)
 {
     switch(dato_recibido)
     {
-        case(1):
+        case('1'):
             cuenta_uart++;
             break;
 
-        case(2):
+        case('2'):
             cuenta_uart--;
             break;
 
@@ -2878,7 +2878,7 @@ uint8_t lcd_ascii()
     random[7]=datos_ascii(((2*(conversion2)/100)%10));
     random[8]=datos_ascii((2*conversion2)%10);
     random[9]=32;
-    random[10]=datos_ascii(RCREG);
+    random[10]=datos_ascii(cuenta_uart);
     random[11]=0x2E;
     random[12]=32;
     random[13]=32;
