@@ -11,6 +11,18 @@ import processing.serial.*;    //se importa libreria de comunicacion serial
 ---------------------------definicion de variables a implementar--------------------
 ----------------------------------------------------------------------------------*/
 Serial myPort;                        //variable objeto para comunicacion serial
+byte[] dePic = new byte[6];           //bytes recibidos desde PIC
+int [] dePicInt = {0,0,0,0,0,0};        //se desconoce su valor, por eso en 0
+
+byte [] haciaPic = new byte [6];      //byts para mandar a PIC
+int [] haciaPicInt = {0,1,0,1,1,0};    //arreglo de datos a mandar al PIC, [servo1_0,servo1_45,servo2_0,servo2_45,servo3_0,servo3_45]
+
+int interval = 100;
+int previousMillis = 0;
+int currentMillis = 0;
+int dato_transmitido=0;    //variable para mandar al PIC
+int dato_recibido;         //variable con datos desde el PIC
+String puerto[];          //variable tipo string para los datos
 
 /*----------------------------------------------------------------------------------
 -----------------------------definicion de cadenas a implementar--------------------
@@ -22,7 +34,6 @@ int boton_eeprom[] = {220,425, 60};              //puntox, puntoy y tamaño
 /*----------------------------------------------------------------------------------
 ---------------------------definicion de variables a implementar--------------------
 ----------------------------------------------------------------------------------*/
-int dato_transmitido=0;    //variable para mandar al PIC
 
 /*----------------------------------------------------------------------------------
 ---------------------------------implementacion de funciones------------------------
@@ -33,9 +44,9 @@ void setup()
 {
 //------------------Configuracion de puertos seriales
 //puerto = Serial.list()[0];                 //declaraccion de puerto USB para USARTcom
-/*myPort = new Serial(this, Serial.list()[0], 9600);          //configuracion de puerto y braudeaje
+myPort = new Serial(this, Serial.list()[3], 9600);          //configuracion de puerto y braudeaje
 myPort.buffer(6);
-thread("serial_comm");*/
+thread("serial_comm");
 
   
 size(550,580);                                      //tamaño de 500*500 pixeles
@@ -65,13 +76,8 @@ void draw()
       {
         fill(255,0,0);
         square(boton1[0],boton1[1],boton1[2]);
-        dato_transmitido++;
-        if (dato_transmitido ==255)
-        {
-          dato_transmitido=255;
-          println(dato_transmitido);
-        }
-        //myPort.write(dato_transmitido);       //valor
+        dato_transmitido=1;
+        myPort.write(dato_transmitido);       //valor
       }
     }
   }
@@ -89,15 +95,8 @@ void draw()
       {
         fill(255,0,0);
         square(boton1[0]+120,boton1[1],boton1[2]);
-        dato_transmitido--;
-        if (dato_transmitido < 0)
-        {
-          dato_transmitido=0;
-          println(dato_transmitido);
-        }
-        println("0");
-        //println(dato_transmitido);
-        //myPort.write(dato_transmitido);
+        dato_transmitido=2;
+        myPort.write(dato_transmitido);
       }
     }
   }
@@ -112,7 +111,7 @@ void draw()
 
 //--------------------------funcion de comunicacion serial----------------------------
 
-/*void serialEvent(Serial myPort)
+void serialEvent(Serial myPort)
 {
   //myPort.readBytes(dePic);
   for (int i=0;i<6 ;i++)
@@ -138,4 +137,4 @@ void serial_comm()
       myPort.write(haciaPic);
     }
   }
-}*/
+}

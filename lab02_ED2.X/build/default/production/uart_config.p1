@@ -292,45 +292,45 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"18 uart_config.c
-[; ;uart_config.c: 18: void uart_config(void)
+"19 uart_config.c
+[; ;uart_config.c: 19: void uart_config(void)
 [v _uart_config `(v ~T0 @X0 1 ef ]
-"19
-[; ;uart_config.c: 19: {
+"20
+[; ;uart_config.c: 20: {
 {
 [e :U _uart_config ]
 [f ]
-"22
-[; ;uart_config.c: 22:     TXSTAbits.SYNC = 0;
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
 "23
-[; ;uart_config.c: 23:     TXSTAbits.BRGH = 1;
+[; ;uart_config.c: 23:     TXSTAbits.SYNC = 0;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+"24
+[; ;uart_config.c: 24:     TXSTAbits.BRGH = 1;
 [e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-"25
-[; ;uart_config.c: 25:     BAUDCTLbits.BRG16 = 1;
-[e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
 "26
-[; ;uart_config.c: 26:     SPBRG = 25;
-[e = _SPBRG -> -> 25 `i `uc ]
+[; ;uart_config.c: 26:     BAUDCTLbits.BRG16 = 1;
+[e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
 "27
-[; ;uart_config.c: 27:     SPBRGH = 0;
+[; ;uart_config.c: 27:     SPBRG = 25;
+[e = _SPBRG -> -> 25 `i `uc ]
+"28
+[; ;uart_config.c: 28:     SPBRGH = 0;
 [e = _SPBRGH -> -> 0 `i `uc ]
-"29
-[; ;uart_config.c: 29:     RCSTAbits.SPEN = 1;
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
 "30
-[; ;uart_config.c: 30:     RCSTAbits.RX9 = 0;
+[; ;uart_config.c: 30:     RCSTAbits.SPEN = 1;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+"31
+[; ;uart_config.c: 31:     RCSTAbits.RX9 = 0;
 [e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
-"32
-[; ;uart_config.c: 32:     RCSTAbits.CREN = 1;
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
 "33
-[; ;uart_config.c: 33:     TXSTAbits.TXEN = 1;
-[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+[; ;uart_config.c: 33:     RCSTAbits.CREN = 1;
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
 "34
-[; ;uart_config.c: 34:     return;
-[e $UE 138  ]
+[; ;uart_config.c: 34:     TXSTAbits.TXEN = 1;
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
 "35
-[; ;uart_config.c: 35: }
+[; ;uart_config.c: 35:     return;
+[e $UE 138  ]
+"36
+[; ;uart_config.c: 36: }
 [e :UE 138 ]
 }

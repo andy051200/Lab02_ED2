@@ -28,5 +28,5 @@ void adc_config()
     ADCON0bits.CHS = 0;         // seleccion de canal 0
     __delay_us(50);             //delay de 50us para que cargue capacitor
     ADCON0bits.ADON = 1 ;       // se prende modulo ADC
-    return;
+    //return;
 }

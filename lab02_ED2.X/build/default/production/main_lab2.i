@@ -2672,7 +2672,7 @@ void recepcion_uart(void);
 unsigned char datos_ascii(uint8_t numero);
 void conversiones(void);
 uint8_t lcd_ascii();
-
+void deliver(void);
 
 
 
@@ -2680,22 +2680,10 @@ unsigned char conversion1;
 unsigned char conversion2;
 unsigned char dato_recibido;
 unsigned char cuenta_uart;
-
-unsigned char centenas1;
-unsigned char decenas1;
-unsigned char unidades1;
-
-unsigned char centenas2;
-unsigned char decenas2;
-unsigned char unidades2;
-
+# 71 "main_lab2.c"
 unsigned char centenas3;
 unsigned char decenas3;
 unsigned char unidades3;
-
-unsigned char suma1;
-unsigned char suma2;
-unsigned char suma3;
 
 
 
@@ -2720,7 +2708,6 @@ void main(void)
     lcd_init();
  cmd(0x90);
 
-
     while(1)
     {
 
@@ -2728,8 +2715,7 @@ void main(void)
         recepcion_uart();
 
 
-        PORTD=conversion1;
-# 125 "main_lab2.c"
+
         lcd_linea(1,1);
         show(" S1   S2   S3 ");
         lcd_linea(2,1);
@@ -2752,19 +2738,14 @@ void setup(void)
     TRISB=0;
 
 
-
-
-
-    TRISC=0;
     TRISDbits.TRISD5=0;
     TRISDbits.TRISD6=0;
     TRISDbits.TRISD7=0;
-    TRISE=0;
+
 
     PORTB=0;
-
     PORTD=0;
-    PORTE=0;
+
 
 
     OSCCONbits.IRCF = 0b111;
@@ -2773,21 +2754,13 @@ void setup(void)
 
     adc_config();
 
+    uart_config();
 
 
+    INTCONbits.GIE=1;
+    PIE1bits.RCIE=1;
+    PIR1bits.RCIF=0;
 
-    INTCONbits.GIE=0;
-    INTCONbits.T0IE=0;
-    INTCONbits.T0IF=0;
-    INTCONbits.RBIE=0;
-    INTCONbits.RBIF=0;
-
-    PIE1bits.ADIE = 0 ;
-    PIR1bits.ADIF = 0;
-
-
-
-    return;
 }
 
 
@@ -2819,7 +2792,6 @@ void toggle_adc(void)
             ADCON0bits.GO=1;
         }
     }
-    return;
 }
 
 
@@ -2836,7 +2808,7 @@ void recepcion_uart(void)
             break;
 
         default:
-            cuenta_uart=0;
+            cuenta_uart=cuenta_uart;
             break;
     }
 }
@@ -2892,25 +2864,7 @@ unsigned char datos_ascii(uint8_t numero)
     }
 
 }
-
-
-void conversiones()
-{
-    centenas1=(((2*conversion1)/100)%10) ;
-    decenas1=(((2*conversion1)/10)%10) ;
-    unidades1=((2*conversion1)%10) ;
-
-    centenas1=(((2*conversion2)/100)%10) ;
-    decenas1=(((2*conversion2)/10)%10) ;
-    unidades1=((2*conversion2)%10) ;
-
-    centenas1=(((2*cuenta_uart)/100)%10) ;
-    decenas1=(((2*cuenta_uart)/10)%10) ;
-    unidades1=((2*cuenta_uart)%10) ;
-    return;
-}
-
-
+# 272 "main_lab2.c"
 uint8_t lcd_ascii()
 {
     uint8_t random[16];
@@ -2924,10 +2878,10 @@ uint8_t lcd_ascii()
     random[7]=datos_ascii(((2*(conversion2)/100)%10));
     random[8]=datos_ascii((2*conversion2)%10);
     random[9]=32;
-    random[10]=datos_ascii(centenas3);
+    random[10]=datos_ascii(RCREG);
     random[11]=0x2E;
-    random[12]=datos_ascii(decenas3);
-    random[13]=datos_ascii(unidades3);
+    random[12]=32;
+    random[13]=32;
     random[14]=32;
     random[15]=32;
     return random;
